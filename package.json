@@ -6,7 +6,8 @@
   "scripts": {
     "pug": "gulp pug",
     "sass": "gulp sass",
-    "start": "gulp start"
+    "start": "gulp start",
+    "pack": "gulp pack"
   },
   "author": "OwlAford",
   "license": "MIT",

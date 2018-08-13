@@ -9,6 +9,13 @@ const sourcemaps = require('gulp-sourcemaps')
 const connect = require('gulp-connect')
 const autoprefixer = require('gulp-autoprefixer')
 
+gulp.task('pack', () => {
+  ['css', 'images', 'js', 'pages', 'fonts', 'media'].forEach(item => {
+    gulp.src(`./${item}/**/*`)
+      .pipe(gulp.dest(`public/${item}`))
+  })
+})
+
 gulp.task('pug', () =>
   gulp.src('pug/pages/*.pug')
   .pipe(pug({
