@@ -30,4 +30,11 @@ $(function(){
   $('.app-tabs-bar .tab-item').on('click', function () {
     $(this).addClass('active').siblings().removeClass('active');
   })
+
+  // checkbox 选框切换
+  $('.app-checkbox-item').on('click', function () {
+    var $cur = $(this);
+    $cur.removeClass('indeterminate');
+    $cur.find('input:checked').length ? $cur.removeClass('checked') : $cur.addClass('checked');
+  })
 })

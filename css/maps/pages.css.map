@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"../pages.css","sourcesContent":[]}
+{"version":3,"sources":["pages.scss"],"names":[],"mappings":"AAAA;EACE,cAAa;CACd","file":"../pages.css","sourcesContent":[".main-content {\n  padding: 20px;\n}"]}

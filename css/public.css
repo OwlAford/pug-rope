@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, textarea {
   padding: 0;
   margin: 0;
@@ -21,6 +22,22 @@ body {
 .app-close.small {
   width: 10px;
   height: 10px;
+}
+
+.fc-up {
+  color: #91ca8b;
+}
+
+.fc-up:before {
+  content: '↑';
+}
+
+.fc-down {
+  color: #dd6a66;
+}
+
+.fc-down:before {
+  content: '↓';
 }
 
 /*# sourceMappingURL=maps/public.css.map */

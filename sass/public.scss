@@ -28,3 +28,19 @@ body {
     height: 10px;
   }
 }
+
+.fc-up {
+  color: #91ca8b;
+
+  &:before {
+    content: '↑';
+  }
+}
+
+.fc-down {
+  color: #dd6a66;
+
+  &:before {
+    content: '↓';
+  }
+}
