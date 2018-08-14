@@ -2,7 +2,6 @@
   "name": "pug-rope",
   "version": "0.0.1",
   "description": "A Application",
-  "main": "./config/builder.js",
   "scripts": {
     "pug": "gulp pug",
     "sass": "gulp sass",

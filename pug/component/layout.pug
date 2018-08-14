@@ -1,9 +1,18 @@
 doctype html
 html
   head
-    title My Site
+    meta(charset='utf-8')
+    title 开元管理后台
+    block styles
+      link(rel='stylesheet' href='https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css')
+      link(rel='stylesheet' href='../css/public.css')
+      link(rel='stylesheet' href='../css/common.css')
+      link(rel='stylesheet' href='../css/pages.css')
     block scripts
-      link(rel='stylesheet' href='../css/reset.css')
       script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+      script(src='../js/common.js')
   body
-    block content
+    .app-main
+      include ./sidebar.pug
+      .app-content
+        block content

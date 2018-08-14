@@ -1,0 +1,30 @@
+body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, textarea {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system,
+  PingFang SC,
+  Hiragino Sans GB,
+  Microsoft YaHei,
+  Helvetica Neue,
+  Arial,
+  sans-serif;
+  background-color: #0f131f;
+  color: #fff;
+  font-size: 14px;
+}
+
+.app-close {
+  height: 18px;
+  width: 18px;
+  display: block;
+  background: url(../images/close.png) no-repeat center center;
+  background-size: 100% auto;
+
+  &.small {
+    width: 10px;
+    height: 10px;
+  }
+}

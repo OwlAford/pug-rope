@@ -1,0 +1,150 @@
+$fc-color: #7f8fa4;
+
+// 侧边栏
+.app-sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  overflow: auto;
+  background-color: #292c39;
+
+  .app-brand {
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    padding-left: 20px;
+    color: $fc-color;
+    font-weight: 700;
+    text-shadow: 0 1px 3px #27282d;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 42px;
+      height: 42px;
+      background: url(../images/logo.png) no-repeat center center;
+      background-size: 38px auto;
+      margin-right: 5px;
+    }
+  }
+
+  .menu-group {
+    cursor: pointer;
+  
+    .sub-list {
+      display: none;
+    }
+
+    &.active {
+      .menu-title {
+        color: #e3e3e5;
+
+        &:after {
+          background-position: 0 0;
+        }
+
+        &.pre-ico-a:before {
+          background-position: -20px 0;
+        }
+
+        &.pre-ico-b:before {
+          background-position: -20px -20px;
+        }
+
+        &.pre-ico-c:before {
+          background-position: -20px -40px;
+        }
+
+        &.pre-ico-d:before {
+          background-position: -20px -60px;
+        }
+
+        &.pre-ico-e:before {
+          background-position: -20px -80px;
+        }
+
+        &.pre-ico-f:before {
+          background-position: -20px -100px;
+        }
+      }
+
+      .sub-list {
+        display: block;
+      }
+    }
+  }
+
+  .menu-list {
+    .menu-title {
+      height: 44px;
+      line-height: 44px;
+      padding-left: 45px;
+      color: $fc-color;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url(../images/menu.png) no-repeat;
+        background-size: 200% auto;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        margin-top: -10px;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        height: 18px;
+        width: 18px;
+        background: url(../images/arr.png) no-repeat 0 bottom;
+        background-size: 100% auto;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        margin-top: -9px;
+      }
+
+      &.pre-ico-b:before {
+        background-position: 0 -20px;
+      }
+
+      &.pre-ico-c:before {
+        background-position: 0 -40px;
+      }
+
+      &.pre-ico-d:before {
+        background-position: 0 -60px;
+      }
+
+      &.pre-ico-e:before {
+        background-position: 0 -80px;
+      }
+
+      &.pre-ico-f:before {
+        background-position: 0 -100px;
+      }
+    }
+  
+    .sub-list {
+      .sub-item {
+        color: $fc-color;
+        padding-left: 60px;
+        line-height: 42px;
+        height: 42px;
+        text-decoration: none;
+        display: block;
+
+        &.active {
+          color: #e3e3e5;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,221 @@
+.app-sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  overflow: auto;
+  background-color: #292c39;
+}
+
+.app-sidebar .app-brand {
+  height: 80px;
+  line-height: 80px;
+  font-size: 18px;
+  padding-left: 20px;
+  color: #7f8fa4;
+  font-weight: 700;
+  text-shadow: 0 1px 3px #27282d;
+}
+
+.app-sidebar .app-brand:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 42px;
+  height: 42px;
+  background: url(../images/logo.png) no-repeat center center;
+  background-size: 38px auto;
+  margin-right: 5px;
+}
+
+.app-sidebar .menu-group {
+  cursor: pointer;
+}
+
+.app-sidebar .menu-group .sub-list {
+  display: none;
+}
+
+.app-sidebar .menu-group.active .menu-title {
+  color: #e3e3e5;
+}
+
+.app-sidebar .menu-group.active .menu-title:after {
+  background-position: 0 0;
+}
+
+.app-sidebar .menu-group.active .menu-title.pre-ico-a:before {
+  background-position: -20px 0;
+}
+
+.app-sidebar .menu-group.active .menu-title.pre-ico-b:before {
+  background-position: -20px -20px;
+}
+
+.app-sidebar .menu-group.active .menu-title.pre-ico-c:before {
+  background-position: -20px -40px;
+}
+
+.app-sidebar .menu-group.active .menu-title.pre-ico-d:before {
+  background-position: -20px -60px;
+}
+
+.app-sidebar .menu-group.active .menu-title.pre-ico-e:before {
+  background-position: -20px -80px;
+}
+
+.app-sidebar .menu-group.active .menu-title.pre-ico-f:before {
+  background-position: -20px -100px;
+}
+
+.app-sidebar .menu-group.active .sub-list {
+  display: block;
+}
+
+.app-sidebar .menu-list .menu-title {
+  height: 44px;
+  line-height: 44px;
+  padding-left: 45px;
+  color: #7f8fa4;
+  position: relative;
+}
+
+.app-sidebar .menu-list .menu-title:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(../images/menu.png) no-repeat;
+  background-size: 200% auto;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  margin-top: -10px;
+}
+
+.app-sidebar .menu-list .menu-title:after {
+  content: '';
+  display: block;
+  height: 18px;
+  width: 18px;
+  background: url(../images/arr.png) no-repeat 0 bottom;
+  background-size: 100% auto;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -9px;
+}
+
+.app-sidebar .menu-list .menu-title.pre-ico-b:before {
+  background-position: 0 -20px;
+}
+
+.app-sidebar .menu-list .menu-title.pre-ico-c:before {
+  background-position: 0 -40px;
+}
+
+.app-sidebar .menu-list .menu-title.pre-ico-d:before {
+  background-position: 0 -60px;
+}
+
+.app-sidebar .menu-list .menu-title.pre-ico-e:before {
+  background-position: 0 -80px;
+}
+
+.app-sidebar .menu-list .menu-title.pre-ico-f:before {
+  background-position: 0 -100px;
+}
+
+.app-sidebar .menu-list .sub-list .sub-item {
+  color: #7f8fa4;
+  padding-left: 60px;
+  line-height: 42px;
+  height: 42px;
+  text-decoration: none;
+  display: block;
+}
+
+.app-sidebar .menu-list .sub-list .sub-item.active {
+  color: #e3e3e5;
+}
+
+.app-content {
+  position: absolute;
+  left: 250px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background: url(../images/bg.jpg) no-repeat center center;
+  background-size: cover;
+  -webkit-transition: left .3s;
+  transition: left .3s;
+}
+
+.app-tabs-bar {
+  height: 52px;
+  background-color: #242733;
+  position: relative;
+  padding-left: 80px;
+}
+
+.app-tabs-bar .sidebar-control {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  background: url(../images/list.png) no-repeat;
+  background-size: 100% auto;
+  top: 14px;
+  left: 28px;
+  cursor: pointer;
+}
+
+.app-tabs-bar .sidebar-control.active {
+  background-position: 0 100%;
+}
+
+.app-tabs-bar .tabs-list .tab-item {
+  line-height: 52px;
+  padding: 0 15px;
+  color: #e3e3e5;
+  display: inline-block;
+  cursor: default;
+  font-size: 12px;
+}
+
+.app-tabs-bar .tabs-list .tab-item .app-close {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.app-tabs-bar .tabs-list .tab-item.active {
+  background-color: #171c27;
+}
+
+.app-tabs-bar .user-status {
+  position: absolute;
+  right: 30px;
+  top: 0;
+  line-height: 52px;
+}
+
+.app-tabs-bar .user-status .item {
+  display: inline-block;
+  font-size: 13px;
+  color: #748296;
+}
+
+.app-tabs-bar .user-status .avatar {
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url(../images/user.png) no-repeat;
+  background-size: 100% auto;
+  margin-left: 10px;
+}
+
+/*# sourceMappingURL=maps/common.css.map */
