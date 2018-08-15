@@ -58,7 +58,7 @@ gulp.task('sass:watch', () =>
 )
 
 gulp.task('file:watch', () => {
-  gulp.watch(['./css/*.css', './images/**/*', './pages/*.html'], ['reload'])
+  gulp.watch(['./css/*.css', './images/**/*', './pages/*.html', '/js/pages/*.js'], ['reload'])
 })
 
 gulp.task('serve', () => {

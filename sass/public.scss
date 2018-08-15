@@ -22,6 +22,12 @@ body {
   display: block;
   background: url(../images/close.png) no-repeat center center;
   background-size: 100% auto;
+  cursor: pointer;
+
+  &.medium {
+    width: 16px;
+    height: 16px;
+  }
 
   &.small {
     width: 10px;
@@ -43,4 +49,12 @@ body {
   &:before {
     content: '↓';
   }
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt30 {
+  margin-top: 30px;
 }

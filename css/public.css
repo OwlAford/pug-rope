@@ -17,6 +17,12 @@ body {
   display: block;
   background: url(../images/close.png) no-repeat center center;
   background-size: 100% auto;
+  cursor: pointer;
+}
+
+.app-close.medium {
+  width: 16px;
+  height: 16px;
 }
 
 .app-close.small {
@@ -38,6 +44,14 @@ body {
 
 .fc-down:before {
   content: '↓';
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt30 {
+  margin-top: 30px;
 }
 
 /*# sourceMappingURL=maps/public.css.map */

@@ -1,0 +1,24 @@
+.app-dialog
+  .dialog-mask
+  .dialog-box
+    .box-title 大标题
+    .fm-list
+      .row-item
+        .app-label-input-group
+          label 小标题
+          input.app-input(type='text' value='已输入文本' placeholder='请输入文本内容')
+        .app-label-input-group
+          label 小标题
+          input.app-input.error(type='text' value='输入了错误内容' placeholder='请输入文本内容')
+      .row-item
+        .app-label-input-group
+          label 小标题
+          input.app-input(type='text' placeholder='请输入文本内容')
+        .app-label-input-group
+          label 小标题
+          input.app-input(type='text' value='不可更改' disabled placeholder='请输入文本内容')
+      .app-btn-grp.center.mt30
+        button.app-btn.hollow 取消
+        button.app-btn.warning 确定
+
+    .app-close.medium

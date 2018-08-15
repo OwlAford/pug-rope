@@ -1,1 +1,1 @@
-{"version":3,"sources":["pages.scss"],"names":[],"mappings":"AAAA;EACE,cAAa;CACd","file":"../pages.css","sourcesContent":[".main-content {\n  padding: 20px;\n}"]}
+{"version":3,"sources":["pages.scss"],"names":[],"mappings":"AAAA;EACE,cAAa;CACd;;AAED;EACE,gBAAe;CAChB","file":"../pages.css","sourcesContent":[".main-content {\n  padding: 20px;\n}\n\n.fm-list {\n  padding: 20px 0;\n}"]}

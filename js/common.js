@@ -37,4 +37,9 @@ $(function(){
     $cur.removeClass('indeterminate');
     $cur.find('input:checked').length ? $cur.removeClass('checked') : $cur.addClass('checked');
   })
+
+  // 关闭弹框
+  $('.dialog-box .app-close').on('click', function () {
+    $(this).parents('.app-dialog').hide()
+  })
 })
