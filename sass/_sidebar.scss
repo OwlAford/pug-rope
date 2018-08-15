@@ -6,7 +6,7 @@ $fc-color: #7f8fa4;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 250px;
+  width: 240px;
   overflow: auto;
   background-color: #292c39;
 
@@ -40,7 +40,7 @@ $fc-color: #7f8fa4;
 
     &.active {
       .menu-title {
-        color: #e3e3e5;
+        color: $fcLight;
 
         &:after {
           background-position: 0 0;
@@ -142,7 +142,7 @@ $fc-color: #7f8fa4;
         display: block;
 
         &.active {
-          color: #e3e3e5;
+          color: $fcLight;
         }
       }
     }

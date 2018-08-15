@@ -62,7 +62,7 @@
         </div>
         <div class="main-content">
           <div class="app-btn-grp">
-            <button class="app-btn">添加公告</button>
+            <button class="app-btn" id="addBtn">添加公告</button>
             <button class="app-btn dangerous">批量删除</button>
           </div>
           <div class="app-table" cellpadding="0" cellspacing="0">
@@ -156,5 +156,25 @@
         </div>
       </div>
     </div>
+    <script>$(function(){
+  // checkbox 选框切换
+  $('.app-checkbox-item').on('click', function () {
+    var $cur = $(this);
+    $cur.removeClass('indeterminate');
+    $cur.find('input:checked').length ? $cur.removeClass('checked') : $cur.addClass('checked');
+  })
+  
+  // 打开弹框
+  var $dialog = $('.app-dialog');
+  $('#addBtn').on('click', function () {
+    $dialog.addClass('show');
+  })
+
+  // 关闭弹框
+  $('.dialog-box .app-close').on('click', function () {
+    $dialog.removeClass('show');
+  })
+})
+    </script>
   </body>
 </html>

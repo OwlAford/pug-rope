@@ -22,10 +22,11 @@ gulp.task('pug', () =>
     pretty: true
   }))
   .pipe(gulp.dest('./pages'))
+  .pipe(connect.reload())
 )
 
 gulp.task('pug:watch', () =>
-  gulp.watch('pug/**/*.pug', ['pug'])
+  gulp.watch(['pug/**/*.pug', 'pug/**/*.js'], ['pug'])
 )
 
 gulp.task('sass', () =>
@@ -46,6 +47,7 @@ gulp.task('sass', () =>
   }))
   .pipe(sourcemaps.write('./maps'))
   .pipe(gulp.dest('./css'))
+  .pipe(connect.reload())
 )
 
 gulp.task('reload', () => {
@@ -58,11 +60,11 @@ gulp.task('sass:watch', () =>
 )
 
 gulp.task('file:watch', () => {
-  gulp.watch(['./css/*.css', './images/**/*', './pages/*.html', '/js/pages/*.js'], ['reload'])
+  gulp.watch(['./fonts/**/*', './images/**/*', './media/**/*'], ['reload'])
 })
 
 gulp.task('serve', () => {
-  const port = 8888
+  const port = 3000
   const uri = `http://${ip.address()}:${port}`
   const lanUrlForTerminal = uri + '/pages'
   const localUrlForTerminal = `http://localhost:${port}/pages`

@@ -1,10 +1,12 @@
+$fcLight: #e3e3e5;
+
 // 侧边栏
 @import './_sidebar.scss';
 
 // 主体内容
 .app-content {
   position: absolute;
-  left: 250px;
+  left: 240px;
   top: 0;
   bottom: 0;
   right: 0;
@@ -40,7 +42,7 @@
     .tab-item {
       line-height: 52px;
       padding: 0 15px;
-      color: #e3e3e5;
+      color: $fcLight;
       display: inline-block;
       cursor: default;
       font-size: 12px;
@@ -192,7 +194,7 @@
     }
 
     td {
-      color: #e3e3e5;
+      color: $fcLight;
     }
 
     th, tr.odd td {
@@ -209,6 +211,11 @@
   left: 0;
   right: 0;
   z-index: 99;
+  display: none;
+
+  &.show {
+    display: block;
+  }
 
   .dialog-mask {
     height: 100%;
@@ -232,7 +239,7 @@
     .box-title {
       font-size: 16px;
       font-weight: normal;
-      color: #e3e3e5;
+      color: $fcLight;
     }
 
     .app-close {
@@ -251,7 +258,7 @@ input.app-input {
   background-color: transparent;
   border: 1px solid #7f8fa4;
   border-radius: 3px;
-  color: #e3e3e5;
+  color: $fcLight;
   outline: none;
 
   &::-webkit-input-placeholder {
@@ -297,5 +304,28 @@ input.app-input {
     display: block;
     color: #7f8fa4;
     margin: 10px 0;
+  }
+}
+
+// 增长状态
+table.app-growth-list {
+  width: 100%;
+  border-spacing: 0;
+  font-size: 12px;
+  line-height: 32px;
+
+  td {
+    color: $fcLight;
+  }
+
+  .growth-label {
+    padding: 3px 10px;
+    background-color: #73a372;
+    margin: 0 5px;
+    border-radius: 3px;
+
+    &.red {
+      background-color: #dd6a66;
+    }
   }
 }

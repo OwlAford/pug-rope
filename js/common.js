@@ -19,27 +19,16 @@ $(function(){
     var isActive = $btn.hasClass('active');
     if (isActive) {
       $btn.removeClass('active');
-      $content.css('left', '250px');
+      $content.css('left', '240px');
     } else {
       $btn.addClass('active');
       $content.css('left', '0');
     }
+    $(this).trigger('toggleSidebar');
   })
 
   // 可关闭标签切换
   $('.app-tabs-bar .tab-item').on('click', function () {
     $(this).addClass('active').siblings().removeClass('active');
-  })
-
-  // checkbox 选框切换
-  $('.app-checkbox-item').on('click', function () {
-    var $cur = $(this);
-    $cur.removeClass('indeterminate');
-    $cur.find('input:checked').length ? $cur.removeClass('checked') : $cur.addClass('checked');
-  })
-
-  // 关闭弹框
-  $('.dialog-box .app-close').on('click', function () {
-    $(this).parents('.app-dialog').hide()
   })
 })

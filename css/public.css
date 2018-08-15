@@ -30,6 +30,21 @@ body {
   height: 10px;
 }
 
+.app-zoom {
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: url(../images/zoom.png) no-repeat;
+  background-size: 100% auto;
+  z-index: 9;
+}
+
+.app-zoom.in {
+  background-position: 0 100%;
+}
+
 .fc-up {
   color: #91ca8b;
 }

@@ -1,7 +1,39 @@
+$fcLight: #e3e3e5;
+
 .main-content {
   padding: 20px;
 }
 
 .fm-list {
   padding: 20px 0;
+}
+
+.flex-grid {
+  &:after {
+    content: ' ';
+    display: block;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    clear: both;
+  }
+
+  .grid-col {
+    float: left;
+    margin-right: 20px;
+    min-width: 100px;
+
+    .card {
+      min-height: 100px;
+      background-color: #292c39;
+      margin-bottom: 20px;
+      padding: 15px;
+      position: relative;
+
+      .card-title {
+        color: $fcLight;
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
