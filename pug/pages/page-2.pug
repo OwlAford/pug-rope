@@ -1,6 +1,10 @@
 extends ../component/layout.pug
 block scripts
   script(src='../js/echarts-all.js')
+  script(src='../js/config.rose.js')
+  script(src='../js/config.heap-bar.js')
+  script(src='../js/config.bar.js')
+  script(src='../js/config.line.js')
 block content
   include ../component/tabbar.pug
 
@@ -10,7 +14,7 @@ block content
         .card
           .card-title 平台当日盈利
           .app-zoom.out
-          .chart(style='height: 340px')
+          .chart#rose1(style='height: 340px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td
@@ -22,7 +26,7 @@ block content
         .card
           .card-title 平台当日新增/活跃
           .app-zoom.out
-          .chart(style='height: 310px')
+          .chart#bar1(style='height: 310px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td
@@ -41,7 +45,7 @@ block content
         .card
           .card-title 平台本月盈利
           .app-zoom.out
-          .chart(style='height: 240px')
+          .chart#rose2(style='height: 240px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td
@@ -53,18 +57,18 @@ block content
         .card
           .card-title 最近30天在线数据
           .app-zoom.out
-          .chart(style='height: 210px')
+          .chart#line1(style='height: 210px')
         
         .card
           .card-title 24小时实时在线
           .app-zoom.out
-          .chart(style='height: 190px')
+          .chart#line2(style='height: 190px')
 
       .grid-col
         .card
           .card-title 平台当日总注单量
           .app-zoom.out
-          .chart(style='height: 150px')
+          .chart#rose3(style='height: 150px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td(align='center')
@@ -77,7 +81,7 @@ block content
         .card
           .card-title 平台当日总投注
           .app-zoom.out
-          .chart(style='height: 150px')
+          .chart#rose4(style='height: 150px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td(align='center')
@@ -90,7 +94,7 @@ block content
         .card
           .card-title 平台当日人均输赢
           .app-zoom.out
-          .chart(style='height: 180px')
+          .chart#bar2(style='height: 180px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td(align='center')

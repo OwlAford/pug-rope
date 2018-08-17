@@ -1,0 +1,28 @@
+extends ../component/layout.pug
+
+block scripts
+  script(src='../js/echarts-all.js')
+  script(src='../js/config.rose.js')
+
+block content
+  include ../component/tabbar.pug
+
+  .main-content
+    table.status-bar(width='100%')
+      tr
+        td(width='160')
+          button.app-btn.warning.large 列表模式
+        td
+          .status
+            span 当日盈利最高代理：GPK
+            span 当日新增最高代理：PPKP
+            span 当日活跃最高代理：GPK
+    .chart-wrap
+      .chart#rose1(style='height: 500px')
+      .zoom-wrap
+        .app-zoom.in
+
+
+block inlineScript
+  script
+    include page-3.js

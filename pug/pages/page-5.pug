@@ -1,0 +1,25 @@
+extends ../component/layout.pug
+
+block scripts
+  script(src='../js/echarts-all.js')
+
+block content
+  include ../component/tabbar.pug
+
+  .main-content
+    table(width='100%')
+      tr
+        td(width='80%')
+          .chart#map(style='height: 500px')
+        td
+          table.local-table(with='100%' cellpadding='0' cellspacing='1')
+            thead
+              tr
+                th 地区
+                th 用户量
+            tbody#cityList
+        td(width='20')
+
+block inlineScript
+  script
+    include page-5.js

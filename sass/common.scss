@@ -144,6 +144,12 @@ $fcLight: #e3e3e5;
       background-image: -webkit-linear-gradient(135deg, #ca6d49, #d68a39);
     }
   }
+
+  &.large {
+    font-size: 16px;
+    padding: 15px 40px;
+    border-radius: 5px;
+  }
 }
 
 // 多选框

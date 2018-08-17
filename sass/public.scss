@@ -46,6 +46,7 @@ body {
   background: url(../images/zoom.png) no-repeat;
   background-size: 100% auto;
   z-index: 9;
+  cursor: pointer;
 
   &.in {
     background-position: 0 100%;

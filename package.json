@@ -6,7 +6,9 @@
     "pug": "gulp pug",
     "sass": "gulp sass",
     "start": "gulp start",
-    "pack": "gulp pack"
+    "pack": "gulp pack",
+    "lint": "eslint --ext .js pug/",
+    "lint:fix": "eslint --fix --ext .js pug/"
   },
   "author": "OwlAford",
   "license": "MIT",
@@ -14,7 +16,13 @@
     "node": ">=8"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
     "chalk": "^2.4.1",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-connect": "^5.5.0",
