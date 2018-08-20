@@ -9,6 +9,8 @@ $fcLight: #e3e3e5;
 }
 
 .flex-grid {
+  position: relative;
+
   &:after {
     content: ' ';
     display: block;
@@ -23,12 +25,44 @@ $fcLight: #e3e3e5;
     margin-right: 20px;
     min-width: 100px;
 
+    &.last {
+      margin-right: 0;
+    }
+
     .card {
       min-height: 100px;
       background-color: #292c39;
       margin-bottom: 20px;
       padding: 15px;
       position: relative;
+
+      &.fixed {
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        // background-color: transparent;
+
+        .app-zoom {
+          right: 20px;
+          top: 20px;
+        }
+
+        .card-title {
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+
+        .chart-wrap {
+          height: auto !important;
+        }
+
+        .chart {
+          height: 580px !important;
+        }
+      }
 
       .card-title {
         color: $fcLight;
@@ -53,6 +87,7 @@ $fcLight: #e3e3e5;
 }
 
 .chart-wrap {
+  overflow: auto;
   position: relative;
 
   .zoom-wrap {
@@ -86,6 +121,12 @@ table.local-table {
   tr.active {
     td {
       background-color: #171c27;
+    }
+  }
+
+  tr:hover {
+    td {
+      background-color: #2f3642;
     }
   }
 }

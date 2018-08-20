@@ -14,7 +14,7 @@ $(function () {
     echarts
       .init(document.getElementById('rose1'))
       .setOption(getRoseOptions({
-        name: '销售额',
+        name: '盈利',
         radius: [30, 160],
         itemStyle: {
           normal: {

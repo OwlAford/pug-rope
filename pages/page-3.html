@@ -75,9 +75,6 @@
           </table>
           <div class="chart-wrap">
             <div class="chart" id="rose1" style="height: 500px"></div>
-            <div class="zoom-wrap">
-              <div class="app-zoom in"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -98,7 +95,7 @@
     echarts
       .init(document.getElementById('rose1'))
       .setOption(getRoseOptions({
-        name: '销售额',
+        name: '盈利',
         radius: [30, 160],
         itemStyle: {
           normal: {

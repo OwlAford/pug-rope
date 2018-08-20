@@ -118,7 +118,7 @@
                 <div class="chart" id="line2" style="height: 190px"></div>
               </div>
             </div>
-            <div class="grid-col">
+            <div class="grid-col last">
               <div class="card">
                 <div class="card-title">平台当日总注单量</div>
                 <div class="app-zoom out"></div>
@@ -168,7 +168,7 @@
   function resetGrid() {
     var $grid = $('.flex-grid');
     var contentWidth = $grid.outerWidth();
-    var availableWidth = contentWidth - 60;
+    var availableWidth = contentWidth - 40;
     var slcieWidth = [];
 
     var ratio = Array.prototype.slice.apply(arguments);

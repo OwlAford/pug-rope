@@ -13,8 +13,9 @@ block content
       .grid-col
         .card
           .card-title 平台当日盈利
-          .app-zoom.out
-          .chart#rose1(style='height: 340px')
+          .app-zoom(data-chart-index='0')
+          .chart-wrap
+            .chart#rose1(style='height: 340px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td
@@ -25,8 +26,9 @@ block content
 
         .card
           .card-title 平台当日新增/活跃
-          .app-zoom.out
-          .chart#bar1(style='height: 310px')
+          .app-zoom(data-chart-index='1')
+          .chart-wrap
+            .chart#bar1(style='height: 310px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td
@@ -44,8 +46,9 @@ block content
       .grid-col
         .card
           .card-title 平台本月盈利
-          .app-zoom.out
-          .chart#rose2(style='height: 240px')
+          .app-zoom(data-chart-index='2')
+          .chart-wrap
+            .chart#rose2(style='height: 240px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td
@@ -56,19 +59,22 @@ block content
 
         .card
           .card-title 最近30天在线数据
-          .app-zoom.out
-          .chart#line1(style='height: 210px')
+          .app-zoom(data-chart-index='3')
+          .chart-wrap
+            .chart#line1(style='height: 210px')
         
         .card
           .card-title 24小时实时在线
-          .app-zoom.out
-          .chart#line2(style='height: 190px')
+          .app-zoom(data-chart-index='4')
+          .chart-wrap
+            .chart#line2(style='height: 190px')
 
-      .grid-col
+      .grid-col.last
         .card
           .card-title 平台当日总注单量
-          .app-zoom.out
-          .chart#rose3(style='height: 150px')
+          .app-zoom(data-chart-index='5')
+          .chart-wrap
+            .chart#rose3(style='height: 150px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td(align='center')
@@ -80,8 +86,9 @@ block content
 
         .card
           .card-title 平台当日总投注
-          .app-zoom.out
-          .chart#rose4(style='height: 150px')
+          .app-zoom(data-chart-index='6')
+          .chart-wrap
+            .chart#rose4(style='height: 150px')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td(align='center')
@@ -93,8 +100,9 @@ block content
 
         .card
           .card-title 平台当日人均输赢
-          .app-zoom.out
-          .chart#bar2(style='height: 180px')
+          .app-zoom(data-chart-index='7')
+          .chart-wrap(style='height: 180px;')
+            .chart#bar2(style='height: 500px;')
           table.app-growth-list(cellpadding='0' cellspacing='0')
             tr.growth-item
               td(align='center')

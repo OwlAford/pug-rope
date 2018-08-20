@@ -1,9 +1,12 @@
 $(function () {
+  // 当前激活全屏显示元素索引值
+  var fullShowChartIndex = null;
+
   // 重置页面布局宽度
   function resetGrid() {
     var $grid = $('.flex-grid');
     var contentWidth = $grid.outerWidth();
-    var availableWidth = contentWidth - 60;
+    var availableWidth = contentWidth - 40;
     var slcieWidth = [];
 
     var ratio = Array.prototype.slice.apply(arguments);
@@ -19,6 +22,28 @@ $(function () {
   }
   resetGrid(560, 560, 320);
 
+  // 重制全部图表
+  var renderAllCharts = function () {
+    var renderList = [
+      setRose1,
+      setBar1,
+      setRose2,
+      setLine1,
+      setLine2,
+      setRose3,
+      setRose4,
+      setBar2,
+    ]
+    console.log(fullShowChartIndex);
+    if (fullShowChartIndex === null) {
+      $(renderList).each(function(i, item) {
+        item()
+      });
+    } else {
+      renderList[fullShowChartIndex](true);
+    }
+  }
+
   // 切换侧边栏显示隐藏触发页面主体部分重新布局
   var temp;
   $('.app-tabs-bar .sidebar-control').on('click', function () {
@@ -26,24 +51,18 @@ $(function () {
     temp = setTimeout(function () {
       // 页面布局宽度发生变化，图表尺寸需要重置
       resetGrid(560, 560, 320);
-      setRose1();
-      setBar1();
-      setRose2();
-      setLine1();
-      setLine2();
-      setRose3();
-      setRose4();
+      renderAllCharts();
       clearTimeout(temp);
     }, 300);
   });
 
   // 南丁格尔玫瑰图1
-  var setRose1 = function () {
+  var setRose1 = function (full) {
     echarts
       .init(document.getElementById('rose1'))
       .setOption(getRoseOptions({
         name: '当日盈利',
-        radius: [25, 120],
+        radius: full ? [50, 200] : [25, 120],
         data: [
           { value: 10, name: '抢庄牛牛' },
           { value: 5, name: '炸金花' },
@@ -55,7 +74,7 @@ $(function () {
       },
       {
         color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
-      }));
+      }, full));
   };
   setRose1();
 
@@ -68,12 +87,12 @@ $(function () {
   setBar1();
 
   // 南丁格尔玫瑰图2
-  var setRose2 = function () {
+  var setRose2 = function (full) {
     echarts
       .init(document.getElementById('rose2'))
       .setOption(getRoseOptions({
         name: '本月盈利',
-        radius: [20, 100],
+        radius: full ? [50, 200] : [20, 100],
         data: [
           { value: 10, name: '抢庄牛牛' },
           { value: 5, name: '炸金花' },
@@ -85,7 +104,7 @@ $(function () {
       },
       {
         color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
-      }));
+      }, full));
   };
   setRose2();
 
@@ -206,12 +225,12 @@ $(function () {
   setLine2();
 
   // 南丁格尔玫瑰图3
-  var setRose3 = function () {
+  var setRose3 = function (full) {
     echarts
       .init(document.getElementById('rose3'))
       .setOption(getRoseOptions({
         name: '当日总注单量',
-        radius: [10, 60],
+        radius: full ? [50, 200] : [10, 60],
         data: [
           { value: 10, name: '抢庄牛牛' },
           { value: 5, name: '炸金花' },
@@ -223,17 +242,17 @@ $(function () {
       },
       {
         color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
-      }));
+      }, full));
   };
   setRose3();
 
   // 南丁格尔玫瑰图4
-  var setRose4 = function () {
+  var setRose4 = function (full) {
     echarts
       .init(document.getElementById('rose4'))
       .setOption(getRoseOptions({
         name: '当日总投注',
-        radius: [10, 60],
+        radius: full ? [50, 200] : [10, 60],
         data: [
           { value: 10, name: '抢庄牛牛' },
           { value: 5, name: '炸金花' },
@@ -245,7 +264,7 @@ $(function () {
       },
       {
         color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
-      }));
+      }, full));
   };
   setRose4();
 
@@ -256,4 +275,27 @@ $(function () {
       .setOption(getBarOptions());
   };
   setBar2();
+
+  // 点击全屏显示当前图表
+  var $allCard = $('.flex-grid .card');
+  $('.app-zoom').on('click', function () {
+    var $zoomBtn = $(this);
+    var $card = $zoomBtn.parent();
+    var activeIndex = Number($zoomBtn.attr('data-chart-index'));
+    var $activeCard = $allCard.eq(activeIndex);
+  
+    if ($zoomBtn.hasClass('in')) {
+      $zoomBtn.removeClass('in');
+      $allCard.show();
+      $activeCard.removeClass('fixed');
+      fullShowChartIndex = null;
+    } else {
+      $zoomBtn.addClass('in');
+      $allCard.hide();
+      $activeCard.show().addClass('fixed');
+      fullShowChartIndex = activeIndex;
+    }
+    renderAllCharts();
+  })
+
 });

@@ -6,6 +6,10 @@
   padding: 20px 0;
 }
 
+.flex-grid {
+  position: relative;
+}
+
 .flex-grid:after {
   content: ' ';
   display: block;
@@ -21,12 +25,43 @@
   min-width: 100px;
 }
 
+.flex-grid .grid-col.last {
+  margin-right: 0;
+}
+
 .flex-grid .grid-col .card {
   min-height: 100px;
   background-color: #292c39;
   margin-bottom: 20px;
   padding: 15px;
   position: relative;
+}
+
+.flex-grid .grid-col .card.fixed {
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.flex-grid .grid-col .card.fixed .app-zoom {
+  right: 20px;
+  top: 20px;
+}
+
+.flex-grid .grid-col .card.fixed .card-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.flex-grid .grid-col .card.fixed .chart-wrap {
+  height: auto !important;
+}
+
+.flex-grid .grid-col .card.fixed .chart {
+  height: 580px !important;
 }
 
 .flex-grid .grid-col .card .card-title {
@@ -47,6 +82,7 @@
 }
 
 .chart-wrap {
+  overflow: auto;
   position: relative;
 }
 
@@ -80,6 +116,10 @@ table.local-table th, table.local-table td {
 
 table.local-table tr.active td {
   background-color: #171c27;
+}
+
+table.local-table tr:hover td {
+  background-color: #2f3642;
 }
 
 /*# sourceMappingURL=maps/pages.css.map */

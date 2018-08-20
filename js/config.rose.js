@@ -1,4 +1,4 @@
-var getRoseOptions = function (setSeries, config) {
+var getRoseOptions = function (setSeries, config, full) {
   config = config || {};
   var mySeries = $.extend({
     type: 'pie',
@@ -7,15 +7,15 @@ var getRoseOptions = function (setSeries, config) {
     itemStyle: {
       normal: {
         label: {
-          show: false,
+          show:  full ? true : false,
         },
         labelLine: {
-          show: false,
+          show: full ? true : false,
         },
       },
       emphasis: {
         label: {
-          show: true,
+          show: full ? false : true,
           textStyle: {
             fontSize: 10,
           },

@@ -57,11 +57,22 @@ var getHeapBarOptions = function () {
         name: '新增用户',
         type: 'bar',
         stack: '总量',
-        barWidth: 22,
+        barWidth: 20,
         itemStyle: {
           normal: {
             barBorderRadius: 3,
             color: '#e3c1a5',
+            label: {
+              show: true,
+              textStyle: {
+                fontSize: 10,
+              },
+              position: 'insideLeft',
+            },
+          },
+          emphasis: {
+            barBorderRadius: 3,
+            color: '#d0b197',
             label: {
               show: true,
               textStyle: {
@@ -77,11 +88,22 @@ var getHeapBarOptions = function () {
         name: '活跃用户',
         type: 'bar',
         stack: '总量',
-        barWidth: 22,
+        barWidth: 20,
         itemStyle: {
           normal: {
             barBorderRadius: 3,
             color: '#73b9bc',
+            label: {
+              show: true,
+              textStyle: {
+                fontSize: 10,
+              },
+              position: 'insideRight',
+            },
+          },
+          emphasis: {
+            barBorderRadius: 3,
+            color: '#64a0a3',
             label: {
               show: true,
               textStyle: {
