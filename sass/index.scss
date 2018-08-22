@@ -1,0 +1,102 @@
+$fcLight: #e3e3e5;
+
+body {
+  background-color: #0f131f;
+}
+
+// 侧边栏
+@import './_sidebar.scss';
+
+// 主体内容
+.app-content {
+  position: absolute;
+  left: 240px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background: url(../images/bg.jpg) no-repeat center center;
+  background-size: cover;
+  transition: left .3s;
+}
+
+// 可关闭标签页
+.app-tabs-bar {
+  height: 52px;
+  background-color: #242733;
+  position: relative;
+  padding: 0 300px 0 80px;
+
+  .sidebar-control {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    background: url(../images/list.png) no-repeat;
+    background-size: 100% auto;
+    top: 14px;
+    left: 28px;
+    cursor: pointer;
+
+    &.active {
+      background-position: 0 100%;
+    }
+  }
+  .tabs-list {
+    font-size: 0;
+
+    .tab-item {
+      line-height: 52px;
+      padding: 0 30px 0 15px;
+      color: $fcLight;
+      display: inline-block;
+      cursor: default;
+      font-size: 12px;
+      max-width: 105px;
+      overflow: hidden;
+      white-space: nowrap;
+      word-break: keep-all;
+      text-overflow: ellipsis;
+      position: relative;
+
+      i.close {
+        height: 10px;
+        width: 10px;
+        display: block;
+        background: url(../images/close.png) no-repeat center center;
+        background-size: 100% auto;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        margin-top: -5px;
+        cursor: pointer;
+      }
+
+      &.active {
+        background-color: #171c27;
+      }
+    }
+  }
+
+  .user-status {
+    position: absolute;
+    right: 30px;
+    top: 0;
+    line-height: 52px;
+
+    .item {
+      display: inline-block;
+      font-size: 13px;
+      color: #748296;
+    }
+
+    .avatar {
+      height: 24px;
+      width: 24px;
+      display: inline-block;
+      vertical-align: middle;
+      background: url(../images/user.png) no-repeat;
+      background-size: 100% auto;
+      margin-left: 10px;
+    }
+  }
+}

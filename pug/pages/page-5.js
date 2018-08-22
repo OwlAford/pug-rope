@@ -1,14 +1,10 @@
+
 $(function () {
   // 切换侧边栏显示隐藏触发页面主体部分重新布局
-  var temp;
-  $('.app-tabs-bar .sidebar-control').on('click', function () {
-    temp && clearTimeout(temp);
-    temp = setTimeout(function () {
-      // 页面布局宽度发生变化，图表尺寸需要重置
-      initMap();
-      clearTimeout(temp);
-    }, 300);
-  });
+  $(window).on('resize', $.debounce(100, function () {
+    // 页面布局宽度发生变化，图表尺寸需要重置
+    initMap();
+  }))
 
   var areaData = [
     { name: '西藏', value: 60583 },

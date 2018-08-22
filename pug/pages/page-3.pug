@@ -1,12 +1,10 @@
-extends ../component/layout.pug
+extends ../component/page.pug
 
 block scripts
   script(src='../js/echarts-all.js')
   script(src='../js/config.rose.js')
 
 block content
-  include ../component/tabbar.pug
-
   .main-content
     table.status-bar(width='100%')
       tr

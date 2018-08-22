@@ -1,3 +1,4 @@
+
 $(function () {
   // 当前激活全屏显示元素索引值
   var fullShowChartIndex = null;
@@ -22,7 +23,7 @@ $(function () {
   }
   resetGrid(560, 560, 320);
 
-  // 重制全部图表
+  // 重置全部图表
   var renderAllCharts = function () {
     var renderList = [
       setRose1,
@@ -45,16 +46,11 @@ $(function () {
   }
 
   // 切换侧边栏显示隐藏触发页面主体部分重新布局
-  var temp;
-  $('.app-tabs-bar .sidebar-control').on('click', function () {
-    temp && clearTimeout(temp);
-    temp = setTimeout(function () {
-      // 页面布局宽度发生变化，图表尺寸需要重置
-      resetGrid(560, 560, 320);
-      renderAllCharts();
-      clearTimeout(temp);
-    }, 300);
-  });
+  $(window).on('resize', $.debounce(100, function () {
+    // 页面布局宽度发生变化，图表尺寸需要重置
+    resetGrid(560, 560, 320);
+    renderAllCharts();
+  }))
 
   // 南丁格尔玫瑰图1
   var setRose1 = function (full) {

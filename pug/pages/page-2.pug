@@ -1,13 +1,12 @@
-extends ../component/layout.pug
+extends ../component/page.pug
 block scripts
   script(src='../js/echarts-all.js')
   script(src='../js/config.rose.js')
   script(src='../js/config.heap-bar.js')
   script(src='../js/config.bar.js')
   script(src='../js/config.line.js')
-block content
-  include ../component/tabbar.pug
 
+block content
   .main-content
     .flex-grid
       .grid-col

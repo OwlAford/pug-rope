@@ -1,0 +1,9 @@
+extends ../component/main.pug
+
+block scripts
+  script(src='../js/main.js')
+
+block content
+  include ../component/tabbar.pug
+
+  iframe(height='100%' width='100%' frameborder='0' id='subFrame' src='page-1.html')

@@ -1,0 +1,12 @@
+body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, textarea {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Arial, sans-serif;
+  color: #fff;
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=maps/reset.css.map */

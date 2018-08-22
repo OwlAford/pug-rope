@@ -1,16 +1,4 @@
 @charset "UTF-8";
-body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, textarea {
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-family: -apple-system, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Arial, sans-serif;
-  background-color: #0f131f;
-  color: #fff;
-  font-size: 14px;
-}
-
 .app-close {
   height: 18px;
   width: 18px;
