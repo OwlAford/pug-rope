@@ -1,4 +1,24 @@
-var getLineOptions = function (type, series) {
+var getLineOptions = function (type, series, full) {
+  var normalFontSize = 10;
+  var grid = {
+    borderWidth: 0,
+    x: 35,
+    y: 10,
+    x2: 10,
+    y2: 60,
+  }
+
+  if (full) {
+    normalFontSize = 13;
+    grid = {
+      borderWidth: 0,
+      x: 45,
+      y: 10,
+      x2: 10,
+      y2: 60,
+    }
+  }
+
   return {
     tooltip: {
       show: true,
@@ -31,7 +51,7 @@ var getLineOptions = function (type, series) {
         axisLabel: {
           textStyle: {
             color: '#979797',
-            fontSize: 10,
+            fontSize: normalFontSize,
           },
         },
         data: ['00', '03', '06', '09', '12', '15', '18', '21', '24', '27', '30'],
@@ -58,18 +78,12 @@ var getLineOptions = function (type, series) {
           margin: 5,
           textStyle: {
             color: '#979797',
-            fontSize: 10,
+            fontSize: normalFontSize,
           },
         },
       },
     ],
-    grid: {
-      borderWidth: 0,
-      x: 35,
-      y: 10,
-      x2: 10,
-      y2: 60,
-    },
+    grid: grid,
     series,
   };
 };

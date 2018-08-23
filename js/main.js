@@ -112,6 +112,7 @@ $(function () {
   function resetSize() {
     $subFrame.attr('height', $('.app-content').height() - 52);
   }
+  
   resetSize();
   $(window).on('resize', resetSize);
 });

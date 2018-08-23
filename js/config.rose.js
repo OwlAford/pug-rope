@@ -1,4 +1,9 @@
 var getRoseOptions = function (setSeries, config, full) {
+  var normalFontSize = 10;
+  if (full) {
+    normalFontSize = 13;
+  }
+
   config = config || {};
   var mySeries = $.extend({
     type: 'pie',
@@ -17,7 +22,7 @@ var getRoseOptions = function (setSeries, config, full) {
         label: {
           show: full ? false : true,
           textStyle: {
-            fontSize: 10,
+            fontSize: normalFontSize,
           },
           position: 'inner',
         },
@@ -33,7 +38,7 @@ var getRoseOptions = function (setSeries, config, full) {
       trigger: 'item',
       formatter: '{a} <br/>{b} : {c} ({d}%)',
       textStyle: {
-        fontSize: 10,
+        fontSize: normalFontSize,
       },
     },
     series: [

@@ -3,12 +3,18 @@ $(function () {
   // 当前激活全屏显示元素索引值
   var fullShowChartIndex = null;
 
+  // 布局可用宽度
+  var availableWidth = 0;
+
+  // 全屏化之前临时保留小图尺寸
+  var tempHeight = 340;
+
   // 重置页面布局宽度
   function resetGrid() {
     var $grid = $('.flex-grid');
     var contentWidth = $grid.outerWidth();
-    var availableWidth = contentWidth - 40;
     var slcieWidth = [];
+    availableWidth = contentWidth - 40;
 
     var ratio = Array.prototype.slice.apply(arguments);
     var ratioDeno = eval(ratio.join('+'));
@@ -35,7 +41,6 @@ $(function () {
       setRose4,
       setBar2,
     ]
-    console.log(fullShowChartIndex);
     if (fullShowChartIndex === null) {
       $(renderList).each(function(i, item) {
         item()
@@ -75,10 +80,10 @@ $(function () {
   setRose1();
 
   // 堆积条形图1
-  var setBar1 = function () {
+  var setBar1 = function (full) {
     echarts
       .init(document.getElementById('bar1'))
-      .setOption(getHeapBarOptions());
+      .setOption(getHeapBarOptions(full));
   };
   setBar1();
 
@@ -105,7 +110,7 @@ $(function () {
   setRose2();
 
   // 折线图1
-  var setLine1 = function () {
+  var setLine1 = function (full) {
     echarts
       .init(document.getElementById('line1'))
       .setOption(getLineOptions(['平均在线', '峰值在线'], [
@@ -158,7 +163,7 @@ $(function () {
           smooth: true,
           data: [900, 1542, 3682, 4724, 5122, 4512, 2523, 2321, 3344, 2200, 3598],
         },
-      ]));
+      ], full));
   };
   setLine1();
 
@@ -265,10 +270,10 @@ $(function () {
   setRose4();
 
   // 条形图2
-  var setBar2 = function () {
+  var setBar2 = function (full) {
     echarts
       .init(document.getElementById('bar2'))
-      .setOption(getBarOptions());
+      .setOption(getBarOptions(full));
   };
   setBar2();
 
@@ -279,16 +284,21 @@ $(function () {
     var $card = $zoomBtn.parent();
     var activeIndex = Number($zoomBtn.attr('data-chart-index'));
     var $activeCard = $allCard.eq(activeIndex);
+    var $chart = $card.find('.chart');
+    var fullViewHeight = $chart.height() / $chart.width() * availableWidth;
   
     if ($zoomBtn.hasClass('in')) {
       $zoomBtn.removeClass('in');
       $allCard.show();
       $activeCard.removeClass('fixed');
+      $chart.css('height', tempHeight + 'px');
       fullShowChartIndex = null;
     } else {
+      tempHeight = $chart.height();
       $zoomBtn.addClass('in');
       $allCard.hide();
       $activeCard.show().addClass('fixed');
+      $chart.css('height', fullViewHeight + 'px');
       fullShowChartIndex = activeIndex;
     }
     renderAllCharts();

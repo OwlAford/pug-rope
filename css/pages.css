@@ -60,8 +60,9 @@
   height: auto !important;
 }
 
-.flex-grid .grid-col .card.fixed .chart {
-  height: 580px !important;
+.flex-grid .grid-col .card.fixed table.app-growth-list {
+  font-size: 14px;
+  line-height: 48px;
 }
 
 .flex-grid .grid-col .card .card-title {
