@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>开元管理后台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="../js/spin.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/echarts-all.js"></script>
+    <script src="../js/chartToolkit.js"></script>
+    <script src="../js/laydate/laydate.js"></script>
+    <script src="../js/config.line.js"></script>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="flex-grid-wrap">
+        <div class="flex-grid">
+          <div class="grid-col">
+            <div class="card">
+              <div class="card-title">新增用户</div>
+              <div class="time-range"><span>日期范围选择</span>
+                <div class="cacheTime"></div>
+              </div>
+              <div class="app-zoom"></div>
+              <div class="chart-wrap">
+                <div class="chart" id="line1" style="height: 210px"></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">活跃用户</div>
+              <div class="time-range"><span>日期范围选择</span>
+                <div class="cacheTime"></div>
+              </div>
+              <div class="app-zoom"></div>
+              <div class="chart-wrap">
+                <div class="chart" id="line2" style="height: 210px"></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">流失用户</div>
+              <div class="time-range"><span>日期范围选择</span>
+                <div class="cacheTime"></div>
+              </div>
+              <div class="app-zoom"></div>
+              <div class="chart-wrap">
+                <div class="chart" id="line3" style="height: 210px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-col last">
+            <div class="card">
+              <div class="card-title">收入数据</div>
+              <div class="time-range"><span>日期范围选择</span>
+                <div class="cacheTime"></div>
+              </div>
+              <div class="app-zoom"></div>
+              <div class="chart-wrap">
+                <div class="chart" id="line4" style="height: 210px"></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">消费率/活跃率</div>
+              <div class="time-range"><span>日期范围选择</span>
+                <div class="cacheTime"></div>
+              </div>
+              <div class="app-zoom"></div>
+              <div class="chart-wrap">
+                <div class="chart" id="line5" style="height: 210px"></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">回归用户</div>
+              <div class="time-range"><span>日期范围选择</span>
+                <div class="cacheTime"></div>
+              </div>
+              <div class="app-zoom"></div>
+              <div class="chart-wrap">
+                <div class="chart" id="line6" style="height: 210px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+$(function () {
+  var toolkit = new chartToolkit({
+    gridRatio: [1, 1],
+    resizeDelay: 210
+  });
+
+  // 为作演示，统一生成相似数据配置参数
+  function getLineSettings(data, full) {
+    var days = [];
+
+    for (var i = 1; i <= 30; i++) {
+      days.push('6/' + i)
+    }
+
+    var tempItem = function (title, lineColor, areaColor) {
+      return {
+        itemStyle: {
+          normal: {
+            lineStyle: {
+              width: 1,
+              type: 'solid',
+            },
+            label: {
+              textStyle: {
+                fontSize: '12',
+                fontWeight: 'normal',
+              },
+            },
+            color: lineColor,
+            areaStyle: {
+              color: areaColor,
+            },
+          },
+        },
+        symbolSize: 0,
+        name: title,
+        type: 'line',
+        smooth: true,
+        data: toolkit.getRandomArray(30, 900, 2800),
+      }
+    }
+
+    var xData = [];
+    var items = [];
+
+    for (var i = 0; i < data.length; i++) {
+      xData.push(data[i][0]);
+      items.push(tempItem.apply(null, data[i]));
+    }
+
+    return getLineOptions(xData, days, items, full)
+  }
+
+  // 折线图1
+  toolkit.push('#line1', function (full) {
+    return getLineSettings([
+      ['新增', '#bf605f', 'rgba(191, 96, 95, 0.1)'],
+      ['有效新增', '#38a2db', 'rgba(56, 162, 219, 0.1)'],
+    ], full)
+  })
+
+  // 折线图2
+  toolkit.push('#line2', function (full) {
+    return getLineSettings([
+      ['幸运五张', '#bf605f', 'rgba(191, 96, 95, 0.1)'],
+      ['21点', '#6e7073', 'rgba(110, 112, 115, 0.1)'],
+    ], full)
+  })
+
+  // 折线图3
+  toolkit.push('#line3', function (full) {
+    return getLineSettings([
+      ['7日', '#cb8622', 'rgba(203, 134, 34, 0.1)'],
+      ['15日', '#dd6a66', 'rgba(221, 106, 102, 0.1)'],
+      ['30日', '#73a372', 'rgba(115, 163, 114, 0.1)'],
+    ], full)
+  })
+
+  // 折线图4
+  toolkit.push('#line4', function (full) {
+    return getLineSettings([
+      ['有效投注', '#38a2db', 'rgba(56, 162, 219, 0.1)'],
+      ['抽水', '#cb8622', 'rgba(203, 134, 34, 0.1)'],
+      ['盈利', '#73a372', 'rgba(115, 163, 114, 0.1)'],
+      ['人均盈利', '#dd6a66', 'rgba(221, 106, 102, 0.1)'],
+    ], full)
+  })
+
+  // 折线图5
+  toolkit.push('#line5', function (full) {
+    return getLineSettings([
+      ['消费率', '#38a2db', 'rgba(56, 162, 219, 0.1)'],
+      ['付费率', '#73a372', 'rgba(115, 163, 114, 0.1)'],
+    ], full)
+  })
+
+  // 折线图6
+  toolkit.push('#line6', function (full) {
+    return getLineSettings([
+      ['7日', '#cb8622', 'rgba(203, 134, 34, 0.1)'],
+      ['15日', '#dd6a66', 'rgba(221, 106, 102, 0.1)'],
+      ['30日', '#73a372', 'rgba(115, 163, 114, 0.1)'],
+    ], full)
+  })
+
+  // 执行一次全局图表渲染
+  toolkit.render();
+
+  // 日期范围选择
+  $('.time-range .cacheTime').on('click', function () {
+    var $btn = $(this);
+    var $activeIndex = Number($btn.attr('data-chart-index'));
+    laydate.render({
+      elem: $btn.get(0),
+      show: true,
+      range: true,
+      done: function (value, date, endDate) {
+        // 此处打印日历选中数据
+        console.log(value, date, endDate)
+
+        // 更新对应数据，当选择日期数据不为空则模拟重新渲染
+        if (!$.isEmptyObject(date)) {
+          toolkit.change($activeIndex, function (full) {
+            return getLineSettings([
+              ['7日', '#cb8622', 'rgba(203, 134, 34, 0.1)'],
+              ['15日', '#dd6a66', 'rgba(221, 106, 102, 0.1)'],
+              ['30日', '#73a372', 'rgba(115, 163, 114, 0.1)'],
+            ], full) 
+          })
+        }
+      }
+    });
+  })
+
+});
+
+    </script>
+  </body>
+</html>

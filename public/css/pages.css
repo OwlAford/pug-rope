@@ -1,12 +1,24 @@
 .main-content {
   padding: 20px;
+  min-height: 300px;
 }
 
 .fm-list {
   padding: 20px 0;
 }
 
-.flex-grid:after {
+.flex-grid .grid-col {
+  float: left;
+  margin-right: 20px;
+  min-width: 100px;
+  width: 300px;
+}
+
+.flex-grid, .flex-single-grid {
+  position: relative;
+}
+
+.flex-grid:after, .flex-single-grid:after {
   content: ' ';
   display: block;
   height: 0;
@@ -15,17 +27,16 @@
   clear: both;
 }
 
-.flex-grid .grid-col {
-  float: left;
-  margin-right: 20px;
-  min-width: 100px;
+.flex-grid .grid-col, .flex-single-grid .grid-col {
+  -webkit-transition: width linear .2s;
+  transition: width linear .2s;
 }
 
-.flex-grid .grid-col.last {
+.flex-grid .grid-col.last, .flex-single-grid .grid-col.last {
   margin-right: 0;
 }
 
-.flex-grid .grid-col .card {
+.flex-grid .grid-col .card, .flex-single-grid .grid-col .card {
   min-height: 100px;
   background-color: #292c39;
   margin-bottom: 20px;
@@ -33,9 +44,68 @@
   position: relative;
 }
 
-.flex-grid .grid-col .card .card-title {
+.flex-grid .grid-col .card.fixed, .flex-single-grid .grid-col .card.fixed {
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  -webkit-animation: fadeInUp .2s;
+  animation: fadeInUp .2s;
+}
+
+.flex-grid .grid-col .card.fixed .app-zoom, .flex-single-grid .grid-col .card.fixed .app-zoom {
+  right: 20px;
+  top: 20px;
+}
+
+.flex-grid .grid-col .card.fixed .card-title, .flex-single-grid .grid-col .card.fixed .card-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.flex-grid .grid-col .card.fixed .time-range, .flex-single-grid .grid-col .card.fixed .time-range {
+  font-size: 14px;
+  top: 18px;
+}
+
+.flex-grid .grid-col .card.fixed .chart-wrap, .flex-single-grid .grid-col .card.fixed .chart-wrap {
+  height: auto !important;
+}
+
+.flex-grid .grid-col .card.fixed table.app-growth-list, .flex-single-grid .grid-col .card.fixed table.app-growth-list {
+  font-size: 14px;
+  line-height: 48px;
+}
+
+.flex-grid .grid-col .card .card-title, .flex-single-grid .grid-col .card .card-title {
   color: #e3e3e5;
   margin-bottom: 10px;
+}
+
+.flex-grid .grid-col .card .time-range, .flex-single-grid .grid-col .card .time-range {
+  font-size: 12px;
+  position: absolute;
+  right: 60px;
+  top: 15px;
+  color: #9fa9ba;
+  padding: 3px 6px;
+  border-radius: 3px;
+  background-color: #4c5061;
+  cursor: pointer;
+}
+
+.card .time-range .cacheTime,
+.conditionFilter .filter-btn .cacheTime {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 3;
 }
 
 .status-bar .status {
@@ -51,6 +121,7 @@
 }
 
 .chart-wrap {
+  overflow: auto;
   position: relative;
 }
 
@@ -84,6 +155,87 @@ table.local-table th, table.local-table td {
 
 table.local-table tr.active td {
   background-color: #171c27;
+}
+
+table.local-table tr:hover td {
+  background-color: #2f3642;
+}
+
+.detail-table table th, .detail-table table td {
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.detail-table table th {
+  color: #e3e3e5;
+  background-color: #465061;
+  border-bottom: 1px solid #101420;
+}
+
+.detail-table table tr:hover td {
+  opacity: 0.8;
+}
+
+.detail-table table td {
+  border-right: 1px solid #101420;
+  border-bottom: 1px solid #101420;
+  background-color: #cbced4;
+  color: #292c39;
+}
+
+.detail-table table td.item {
+  background-color: #465061;
+  color: #e3e3e5;
+}
+
+.page-loading {
+  height: 32px;
+  width: 32px;
+  background: url(../images/loading.gif) no-repeat;
+  background-size: 100% auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  margin: -66px 0 0 -16px;
+}
+
+.conditionFilter {
+  padding: 10px 0 15px;
+}
+
+.conditionFilter .filter-btn {
+  padding: 5px 15px;
+  border-radius: 4px;
+  background-color: #4c5061;
+  display: inline-block;
+  font-size: 13px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.check-list-wrap {
+  padding: 15px;
+  background-color: #2d303d;
+}
+
+.check-list {
+  font-size: 0;
+}
+
+.check-list .check-item {
+  padding: 10px 0;
+  display: inline-block;
+  width: 20%;
+  font-size: 13px;
+  color: #7f8fa4;
+  cursor: default;
+}
+
+.check-list .check-item .app-checkbox-item {
+  margin-right: 5px;
 }
 
 /*# sourceMappingURL=maps/pages.css.map */

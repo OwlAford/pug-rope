@@ -1,0 +1,70 @@
+extends ../component/page.pug
+block scripts
+  script(src='../js/echarts-all.js')
+  script(src='../js/chartToolkit.js')
+  script(src='../js/laydate/laydate.js')
+  script(src='../js/config.line.js')
+
+block content
+  .main-content
+    .flex-grid-wrap
+      .flex-grid
+        .grid-col
+          .card
+            .card-title 新增用户
+            .time-range
+              span 日期范围选择
+              .cacheTime
+            .app-zoom
+            .chart-wrap
+              .chart#line1(style='height: 210px')
+              
+          .card
+            .card-title 活跃用户
+            .time-range
+              span 日期范围选择
+              .cacheTime
+            .app-zoom
+            .chart-wrap
+              .chart#line2(style='height: 210px')
+              
+          .card
+            .card-title 流失用户
+            .time-range
+              span 日期范围选择
+              .cacheTime
+            .app-zoom
+            .chart-wrap
+              .chart#line3(style='height: 210px')
+
+        .grid-col.last
+          .card
+            .card-title 收入数据
+            .time-range
+              span 日期范围选择
+              .cacheTime
+            .app-zoom
+            .chart-wrap
+              .chart#line4(style='height: 210px')
+
+          .card
+            .card-title 消费率/活跃率
+            .time-range
+              span 日期范围选择
+              .cacheTime
+            .app-zoom
+            .chart-wrap
+              .chart#line5(style='height: 210px')
+
+          .card
+            .card-title 回归用户
+            .time-range
+              span 日期范围选择
+              .cacheTime
+            .app-zoom
+            .chart-wrap
+              .chart#line6(style='height: 210px')
+
+block inlineScript
+  script
+    include page-7.js

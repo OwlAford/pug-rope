@@ -1,0 +1,34 @@
+extends ../component/page.pug
+
+block scripts
+  script(src='../js/laydate/laydate.js')
+
+block content
+  .main-content
+    .conditionFilter
+      .filter-btn
+        span 日期范围选择
+        .cacheTime
+      .filter-btn#filterBtn 代理筛选
+
+    .detail-table#detailTbl
+      table(cellpadding='0' cellspacing='0' width='100%')
+        thead
+          tr
+            th 时间
+            th 新增用户
+            th 1日留存
+            th 2日留存
+            th 3日留存
+            th 4日留存
+            th 5日留存
+            th 6日留存
+            th 7日留存
+            th 15日留存
+            th 30日留存
+        tbody
+  include ../component/dialog-checkbox.pug
+
+block inlineScript
+  script
+    include page-8.js

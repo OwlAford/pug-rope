@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>开元管理后台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="../js/spin.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/laydate/laydate.js"></script>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="conditionFilter">
+        <div class="filter-btn"><span>日期范围选择</span>
+          <div class="cacheTime"></div>
+        </div>
+        <div class="filter-btn" id="filterBtn">代理筛选</div>
+      </div>
+      <div class="detail-table" id="detailTbl">
+        <table cellpadding="0" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>新增用户</th>
+              <th>1日留存</th>
+              <th>2日留存</th>
+              <th>3日留存</th>
+              <th>4日留存</th>
+              <th>5日留存</th>
+              <th>6日留存</th>
+              <th>7日留存</th>
+              <th>15日留存</th>
+              <th>30日留存</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="app-dialog">
+      <div class="dialog-mask"></div>
+      <div class="dialog-box">
+        <div class="box-title">大标题</div>
+        <div class="fm-list">
+          <div class="check-list-wrap">
+            <div class="check-list">
+              <div class="check-item">
+                <div class="app-checkbox-item checked">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item checked">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item checked">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item checked">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item checked">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item checked">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item checked">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+              <div class="check-item">
+                <div class="app-checkbox-item">
+                  <input class="app-checkbox" type="checkbox">
+                </div><span>娱乐先锋娱乐</span>
+              </div>
+            </div>
+          </div>
+          <div class="app-btn-grp center mt30">
+            <button class="app-btn hollow">取消</button>
+            <button class="app-btn warning">确定</button>
+          </div>
+        </div>
+        <div class="app-close medium"></div>
+      </div>
+    </div>
+    <script> $(function () {
+  var colorOrder = ['#cbced4','#c4c7cf','#babec8','#afb5c3','#a6adbe','#9ea6bb','#959eb8','#8c97b4','#8491b2','#7c8baf','#7585ad','#6f7fa9','#6778a6','#5e6f9f','#57699a','#506395','#475a8e','#405389','#3a4e84','#33487f'];
+
+  var $tbl = $('#detailTbl table');
+  var $tblBody = $tbl.find('tbody');
+
+  // 生成随机数据
+  function randomDataTd () {
+    var domStr = '';
+    for (var i = 0; i < 9; i++) {
+      var ram = (Math.random() * 100).toFixed(1);
+      var order = Math.round(ram / 5);
+      domStr += '<td class="per" style="background-color: ' + colorOrder[order] + '">' + ram + '%</td>'
+    }
+    return domStr
+  }
+
+  // 模拟渲染表格
+  function renderTable () {
+    $tblBody.html('');
+    for (var i = 1; i <= 30; i++) {
+      $tblBody.append('<tr>'
+      + '<td class="item">6月' + i + '日</td>'
+      + '<td class="item">' + ~~(Math.random() * 4000) + '</td>'
+      + randomDataTd()
+      + '</tr>')
+    }
+  }
+
+  renderTable();
+
+  // 日期范围选择
+  $('.conditionFilter .cacheTime').on('click', function () {
+    var $btn = $(this);
+    laydate.render({
+      elem: $btn.get(0),
+      show: true,
+      range: true,
+      done: function (value, date, endDate) {
+        // 此处打印日历选中数据
+        console.log(value, date, endDate);
+        renderTable();
+      }
+    });
+  })
+
+  // checkbox 选框切换
+  $('.check-item').on('click', function () {
+    var $cur = $(this).find('.app-checkbox-item');
+    if ($cur.find('input').attr('checked')) {
+      $cur.removeClass('checked');
+      $cur.find('input').removeAttr('checked');
+    } else {
+      $cur.addClass('checked');
+      $cur.find('input').attr('checked', true);
+    }
+  });
+
+
+  // 打开弹框
+  var $dialog = $('.app-dialog');
+  $('#filterBtn').on('click', function () {
+    $dialog.addClass('show');
+  });
+
+  // 关闭弹框
+  $('.dialog-box .app-close').on('click', function () {
+    $dialog.removeClass('show');
+  });
+
+  // 点击取消
+  $('.dialog-box .app-btn.hollow').on('click', function () {
+    $dialog.removeClass('show');
+  })
+
+  // 点击确定
+  $('.dialog-box .app-btn.warning').on('click', function () {
+    renderTable();
+    $dialog.removeClass('show');
+  })
+
+})
+
+    </script>
+  </body>
+</html>

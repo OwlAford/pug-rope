@@ -1,4 +1,26 @@
-var getHeapBarOptions = function () {
+var getHeapBarOptions = function (full) {
+  var normalFontSize = 10;
+  var barWidth = 20;
+  var grid = {
+    x: 60,
+    y: 40,
+    x2: 10,
+    y2: 20,
+    borderWidth: 0,
+  }
+
+  if (full) {
+    normalFontSize = 13;
+    barWidth = 28;
+    grid = {
+      x: 80,
+      y: 40,
+      x2: 10,
+      y2: 20,
+      borderWidth: 0,
+    }
+  }
+
   return {
     tooltip: {
       trigger: 'axis',
@@ -6,18 +28,12 @@ var getHeapBarOptions = function () {
         type: 'shadow',
       },
     },
-    grid: {
-      x: 60,
-      y: 40,
-      x2: 10,
-      y2: 20,
-      borderWidth: 0,
-    },
+    grid: grid,
     legend: {
       data: ['新增用户', '活跃用户'],
       textStyle: {
         color: '#e3e3e5',
-        fontSize: 10,
+        fontSize: normalFontSize,
       },
     },
     xAxis: [
@@ -46,7 +62,7 @@ var getHeapBarOptions = function () {
         axisLabel: {
           textStyle: {
             color: '#e3e3e5',
-            fontSize: 10,
+            fontSize: normalFontSize,
           },
         },
         data: ['抢庄牛牛', '炸金花', '通比牛牛', '德州扑克', '二八杠', '十八水'],
@@ -57,7 +73,7 @@ var getHeapBarOptions = function () {
         name: '新增用户',
         type: 'bar',
         stack: '总量',
-        barWidth: 22,
+        barWidth: barWidth,
         itemStyle: {
           normal: {
             barBorderRadius: 3,
@@ -65,7 +81,18 @@ var getHeapBarOptions = function () {
             label: {
               show: true,
               textStyle: {
-                fontSize: 10,
+                fontSize: normalFontSize,
+              },
+              position: 'insideLeft',
+            },
+          },
+          emphasis: {
+            barBorderRadius: 3,
+            color: '#d0b197',
+            label: {
+              show: true,
+              textStyle: {
+                fontSize: normalFontSize,
               },
               position: 'insideLeft',
             },
@@ -77,7 +104,7 @@ var getHeapBarOptions = function () {
         name: '活跃用户',
         type: 'bar',
         stack: '总量',
-        barWidth: 22,
+        barWidth: barWidth,
         itemStyle: {
           normal: {
             barBorderRadius: 3,
@@ -85,7 +112,18 @@ var getHeapBarOptions = function () {
             label: {
               show: true,
               textStyle: {
-                fontSize: 10,
+                fontSize: normalFontSize,
+              },
+              position: 'insideRight',
+            },
+          },
+          emphasis: {
+            barBorderRadius: 3,
+            color: '#64a0a3',
+            label: {
+              show: true,
+              textStyle: {
+                fontSize: normalFontSize,
               },
               position: 'insideRight',
             },

@@ -8,97 +8,46 @@
     <meta name="renderer" content="webkit">
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/pages.css">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="../js/spin.min.js"></script>
     <script src="../js/common.js"></script>
     <script src="../js/echarts-all.js"></script>
     <script src="../js/config.rose.js"></script>
   </head>
   <body>
-    <div class="app-main">
-      <div class="app-sidebar">
-        <div class="app-brand">开元管理后台</div>
-        <div class="menu-list">
-          <div class="menu-group active">
-            <div class="menu-title pre-ico-a">运营管理</div>
-            <div class="sub-list"><a class="sub-item active">运营管理1</a><a class="sub-item">运营管理2</a><a class="sub-item">运营管理3</a><a class="sub-item">运营管理4</a></div>
-          </div>
-          <div class="menu-group">
-            <div class="menu-title pre-ico-b">游戏设置</div>
-            <div class="sub-list"><a class="sub-item">游戏设置1</a></div>
-          </div>
-          <div class="menu-group">
-            <div class="menu-title pre-ico-c">账号管理</div>
-            <div class="sub-list"><a class="sub-item">账号管理1</a></div>
-          </div>
-          <div class="menu-group">
-            <div class="menu-title pre-ico-d">报表管理</div>
-            <div class="sub-list"><a class="sub-item">报表管理1</a></div>
-          </div>
-          <div class="menu-group">
-            <div class="menu-title pre-ico-e">风控管理</div>
-            <div class="sub-list"><a class="sub-item">风控管理1</a></div>
-          </div>
-          <div class="menu-group">
-            <div class="menu-title pre-ico-f">系统设置</div>
-            <div class="sub-list"><a class="sub-item">系统设置1</a></div>
-          </div>
-        </div>
-      </div>
-      <div class="app-content">
-        <div class="app-tabs-bar">
-          <div class="sidebar-control"></div>
-          <div class="tabs-list">
-            <div class="tab-item active"><span>输赢报表</span><i class="app-close small"></i></div>
-            <div class="tab-item"><span>对局日志解析</span><i class="app-close small"></i></div>
-            <div class="tab-item"><span>对局日志解析</span><i class="app-close small"></i></div>
-            <div class="tab-item"><span>对局日志解析</span><i class="app-close small"></i></div>
-          </div>
-          <div class="user-status">
-            <div class="item">当前登陆账号：admin</div>
-            <div class="item">北京时间</div>
-            <div class="avatar"></div>
-          </div>
-        </div>
-        <div class="main-content">
-          <table class="status-bar" width="100%">
-            <tr>
-              <td width="160">
-                <button class="app-btn warning large">列表模式</button>
-              </td>
-              <td>
-                <div class="status"><span>当日盈利最高代理：GPK</span><span>当日新增最高代理：PPKP</span><span>当日活跃最高代理：GPK</span></div>
-              </td>
-            </tr>
-          </table>
-          <div class="chart-wrap">
-            <div class="chart" id="rose1" style="height: 500px"></div>
-            <div class="zoom-wrap">
-              <div class="app-zoom in"></div>
-            </div>
-          </div>
-        </div>
+    <div class="main-content">
+      <table class="status-bar" width="100%">
+        <tr>
+          <td width="160">
+            <button class="app-btn warning large">列表模式</button>
+          </td>
+          <td>
+            <div class="status"><span>当日盈利最高代理：GPK</span><span>当日新增最高代理：PPKP</span><span>当日活跃最高代理：GPK</span></div>
+          </td>
+        </tr>
+      </table>
+      <div class="chart-wrap">
+        <div class="chart" id="rose1" style="height: 500px"></div>
       </div>
     </div>
-    <script>$(function () {
+    <script>
+$(function () {
   // 切换侧边栏显示隐藏触发页面主体部分重新布局
-  var temp;
-  $('.app-tabs-bar .sidebar-control').on('click', function () {
-    temp && clearTimeout(temp);
-    temp = setTimeout(function () {
-      // 页面布局宽度发生变化，图表尺寸需要重置
-      initRose();
-      clearTimeout(temp);
-    }, 300);
-  });
+  $(window).on('resize', $.debounce(100, function () {
+    // 页面布局宽度发生变化，图表尺寸需要重置
+    myChart.resize();
+  }))
 
   var initRose = function () {
-    echarts
+    return echarts
       .init(document.getElementById('rose1'))
       .setOption(getRoseOptions({
-        name: '销售额',
+        name: '盈利',
         radius: [30, 160],
         itemStyle: {
           normal: {
@@ -127,7 +76,7 @@
         color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
       }));
   };
-  initRose();
+  var myChart = initRose();
 });
 
     </script>

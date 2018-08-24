@@ -2,6 +2,7 @@ $fcLight: #e3e3e5;
 
 .main-content {
   padding: 20px;
+  min-height: 300px;
 }
 
 .fm-list {
@@ -9,6 +10,15 @@ $fcLight: #e3e3e5;
 }
 
 .flex-grid {
+  .grid-col {
+    float: left;
+    margin-right: 20px;
+    min-width: 100px;
+    width: 300px;
+  }
+}
+
+.flex-grid, .flex-single-grid {
   position: relative;
 
   &:after {
@@ -21,9 +31,7 @@ $fcLight: #e3e3e5;
   }
 
   .grid-col {
-    float: left;
-    margin-right: 20px;
-    min-width: 100px;
+    transition: width linear .2s;
 
     &.last {
       margin-right: 0;
@@ -43,7 +51,7 @@ $fcLight: #e3e3e5;
         left: 0;
         right: 0;
         z-index: 99;
-        // background-color: transparent;
+        animation: fadeInUp .2s;
 
         .app-zoom {
           right: 20px;
@@ -53,6 +61,11 @@ $fcLight: #e3e3e5;
         .card-title {
           font-size: 18px;
           margin-bottom: 20px;
+        }
+
+        .time-range {
+          font-size: 14px;
+          top: 18px;
         }
 
         .chart-wrap {
@@ -69,7 +82,34 @@ $fcLight: #e3e3e5;
         color: $fcLight;
         margin-bottom: 10px;
       }
+
+
+      .time-range {
+        font-size: 12px;
+        position: absolute;
+        right: 60px;
+        top: 15px;
+        color: #9fa9ba;
+        padding: 3px 6px;
+        border-radius: 3px;
+        background-color: #4c5061;
+        cursor: pointer;
+      }
     }
+  }
+}
+
+.card .time-range,
+.conditionFilter .filter-btn {
+  .cacheTime {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 3;
   }
 }
 
@@ -128,6 +168,91 @@ table.local-table {
   tr:hover {
     td {
       background-color: #2f3642;
+    }
+  }
+}
+
+.detail-table {
+  table {
+    th, td {
+      text-align: center;
+      padding: 5px 10px;
+      font-size: 13px;
+    }
+
+    th {
+      color: #e3e3e5;
+      background-color: #465061;
+      border-bottom: 1px solid #101420;
+    }
+
+    tr {
+      &:hover {
+        td {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    td {
+      border-right: 1px solid #101420;
+      border-bottom: 1px solid #101420;
+      background-color: #cbced4;
+      color: #292c39;
+
+      &.item {
+        background-color: #465061;
+        color: #e3e3e5;
+      }
+    }
+  }
+}
+
+.page-loading {
+  height: 32px;
+  width: 32px;
+  background: url(../images/loading.gif) no-repeat;
+  background-size: 100% auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  margin: -66px 0 0 -16px;
+}
+
+.conditionFilter {
+  padding: 10px 0 15px;
+
+  .filter-btn {
+    padding: 5px 15px;
+    border-radius: 4px;
+    background-color: #4c5061;
+    display: inline-block;
+    font-size: 13px;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+}
+
+.check-list-wrap {
+  padding: 15px;
+  background-color: #2d303d;
+}
+
+.check-list {
+  font-size: 0;
+
+  .check-item {
+    padding: 10px 0;
+    display: inline-block;
+    width: 20%;
+    font-size: 13px;
+    color: #7f8fa4;
+    cursor: default;
+
+    .app-checkbox-item {
+      margin-right: 5px;
     }
   }
 }

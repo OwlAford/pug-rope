@@ -1,4 +1,4 @@
-var getLineOptions = function (type, series, full) {
+var getLineOptions = function (type, xData, series, full) {
   var normalFontSize = 10;
   var grid = {
     borderWidth: 0,
@@ -54,7 +54,7 @@ var getLineOptions = function (type, series, full) {
             fontSize: normalFontSize,
           },
         },
-        data: ['00', '03', '06', '09', '12', '15', '18', '21', '24', '27', '30'],
+        data: xData,
       },
     ],
     yAxis: [

@@ -89,6 +89,7 @@
 
 .app-checkbox-item {
   display: inline-block;
+  vertical-align: middle;
   height: 16px;
   width: 16px;
   background: url(../images/checkbox.png) no-repeat;
@@ -178,10 +179,10 @@
 .app-dialog .dialog-box {
   position: absolute;
   width: 680px;
-  min-height: 300px;
+  min-height: 200px;
   left: 50%;
   top: 50%;
-  margin: -240px -340px;
+  margin: -200px -340px;
   background-color: #292c39;
   padding: 15px 20px;
   -webkit-box-sizing: border-box;

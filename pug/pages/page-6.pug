@@ -1,0 +1,42 @@
+extends ../component/page.pug
+block scripts
+  script(src='../js/echarts-all.js')
+  script(src='../js/chartToolkit.js')
+  script(src='../js/config.line.js')
+
+block content
+  .main-content
+    .flex-grid-wrap
+      .flex-single-grid
+        .grid-col
+          .card
+            .card-title 盈利数据
+              .app-zoom
+              .chart-wrap
+                .chart#line1(style='height: 210px')
+
+          .card
+            .card-title 期望盈利
+              .app-zoom
+              .chart-wrap
+                .chart#line2(style='height: 210px')
+
+      .flex-grid
+        .grid-col
+          .card
+            .card-title 新增用户
+            .app-zoom
+            .chart-wrap
+              .chart#line3(style='height: 210px')
+
+        .grid-col.last
+
+          .card
+            .card-title 活跃用户
+            .app-zoom
+            .chart-wrap
+              .chart#line4(style='height: 210px')
+
+block inlineScript
+  script
+    include page-6.js
