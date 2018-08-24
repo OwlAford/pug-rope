@@ -125,6 +125,18 @@
   position: relative;
 }
 
+.chart-wrap::-webkit-scrollbar {
+  width: 2px;
+}
+
+.chart-wrap::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.chart-wrap::-webkit-scrollbar-track-piece {
+  background-color: #0f131f;
+}
+
 .chart-wrap .zoom-wrap {
   background-color: #292c39;
   padding: 10px;

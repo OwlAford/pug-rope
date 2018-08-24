@@ -1,5 +1,10 @@
 $fcLight: #e3e3e5;
 
+html, body, .app-main {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-color: #0f131f;
 }
@@ -18,6 +23,7 @@ body {
   background: url(../images/bg.jpg) no-repeat center center;
   background-size: cover;
   transition: left .2s;
+  overflow: hidden;
 }
 
 // 可关闭标签页
@@ -37,9 +43,9 @@ body {
     left: 28px;
     cursor: pointer;
 
-    &.active {
-      background-position: 0 100%;
-    }
+    // &.active {
+    //   background-position: 0 100%;
+    // }
   }
   .tabs-list {
     font-size: 0;

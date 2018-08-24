@@ -4,13 +4,22 @@ body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, text
 }
 
 body {
-  font-family: -apple-system,
-  PingFang SC,
-  Hiragino Sans GB,
-  Microsoft YaHei,
-  Helvetica Neue,
-  Arial,
-  sans-serif;
   color: #fff;
   font-size: 14px;
+
+  &:lang(zh-CN) {
+    font-family: 'SF Pro SC', 'SF Pro Text', 'SF Pro Icons', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: #0f131f;
+  }
 }
