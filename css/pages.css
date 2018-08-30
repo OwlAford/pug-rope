@@ -29,6 +29,7 @@
 
 .flex-grid .grid-col, .flex-single-grid .grid-col {
   -webkit-transition: width linear .2s;
+  -o-transition: width linear .2s;
   transition: width linear .2s;
 }
 

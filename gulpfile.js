@@ -1,4 +1,4 @@
-'use strict'
+/* eslint-disable */
 const ip = require('ip')
 const opn = require('opn')
 const gulp = require('gulp')
@@ -39,10 +39,7 @@ gulp.task('sass', () =>
     .on('error', sass.logError)
   )
   .pipe(autoprefixer({
-    browsers: [
-      '> 1%',
-      'last 2 versions'
-    ],
+    browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
     cascade: false
   }))
   .pipe(sourcemaps.write('./maps'))

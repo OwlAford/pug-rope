@@ -26,7 +26,7 @@ $fcLight: #e3e3e5;
 
 .app-btn {
   background-color: #525665;
-  background-image: -webkit-linear-gradient(135deg, #313441, #808597);
+  background-image: linear-gradient(135deg, #313441, #808597);
   color: #fff;
   border: none;
   outline: none;
@@ -38,16 +38,16 @@ $fcLight: #e3e3e5;
   
   &:active {
     background-color: #33363f;
-    background-image: -webkit-linear-gradient(135deg, #1f2129, #606472);
+    background-image: linear-gradient(135deg, #1f2129, #606472);
   }
   
   &.dangerous {
     background-color: #d0504d;
-    background-image: -webkit-linear-gradient(135deg, #c33633, #dd6a66);
+    background-image: linear-gradient(135deg, #c33633, #dd6a66);
 
     &:active {
       background-color: #b44442;
-      background-image: -webkit-linear-gradient(135deg, #a72f2d, #dd6a66);
+      background-image: linear-gradient(135deg, #a72f2d, #dd6a66);
     }
   }
   
@@ -64,11 +64,11 @@ $fcLight: #e3e3e5;
 
   &.warning {
     background-color: #ef904a;
-    background-image: -webkit-linear-gradient(135deg, #ea7e53, #f49f42);
+    background-image: linear-gradient(135deg, #ea7e53, #f49f42);
 
     &:active {
       background-color: #d37e41;
-      background-image: -webkit-linear-gradient(135deg, #ca6d49, #d68a39);
+      background-image: linear-gradient(135deg, #ca6d49, #d68a39);
     }
   }
 
