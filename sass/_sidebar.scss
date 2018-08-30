@@ -50,6 +50,43 @@ $fcLight: #e3e3e5;
     overflow: hidden;
     transition: height .3s;
 
+    &:not(.active) {
+      .menu-title {
+        &:hover {
+          background-color: #363944;
+          color: #a4b3c5;
+
+          &:after {
+            background-position: 0 bottom;
+          }
+
+          &.pre-ico-a:before {
+            background-position: -40px 0;
+          }
+
+          &.pre-ico-b:before {
+            background-position: -40px -20px;
+          }
+
+          &.pre-ico-c:before {
+            background-position: -40px -40px;
+          }
+
+          &.pre-ico-d:before {
+            background-position: -40px -60px;
+          }
+
+          &.pre-ico-e:before {
+            background-position: -40px -80px;
+          }
+
+          &.pre-ico-f:before {
+            background-position: -40px -100px;
+          }
+        }
+      }
+    }
+
     &.active {
       .menu-title {
         color: $fcLight;
@@ -100,7 +137,7 @@ $fcLight: #e3e3e5;
         width: 20px;
         height: 20px;
         background: url(../images/menu.png) no-repeat;
-        background-size: 200% auto;
+        background-size: 300% auto;
         position: absolute;
         left: 15px;
         top: 50%;
@@ -112,7 +149,8 @@ $fcLight: #e3e3e5;
         display: block;
         height: 18px;
         width: 18px;
-        background: url(../images/arr.png) no-repeat 0 bottom;
+        background: url(../images/arr.png) no-repeat;
+        background-position: 0 -18px;
         background-size: 100% auto;
         position: absolute;
         right: 15px;
@@ -150,13 +188,36 @@ $fcLight: #e3e3e5;
         text-decoration: none;
         display: block;
         transition: all .3s;
+        position: relative;
+        
+        &:after {
+          content: '';
+          background: url(../images/sub_menu.png) no-repeat;
+          background-size: 100% auto;
+          display: block;
+          height: 18px;
+          width: 18px;
+          position: absolute;
+          top: 50%;
+          left: 40px;
+          margin: -9px 0 0 -9px;
+        }
 
         &:hover {
           background-color: #20232d;
+          color: #a5b3c5;
+
+          &:after {
+            background-position: 0 bottom;
+          }
         }
 
         &.active {
           color: $fcLight;
+
+          &:after {
+            background-position: 0 -18px;
+          }
         }
       }
     }

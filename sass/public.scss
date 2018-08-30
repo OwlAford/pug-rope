@@ -26,12 +26,20 @@ $fcLight: #e3e3e5;
   right: 15px;
   top: 15px;
   background: url(../images/zoom.png) no-repeat;
-  background-size: 100% auto;
+  background-size: 200% auto;
   z-index: 9;
   cursor: pointer;
 
+  &:hover {
+    background-position: -18px 0;
+  }
+
   &.in {
     background-position: 0 100%;
+
+    &:hover {
+      background-position: -18px -18px;
+    }
   }
 }
 

@@ -64,6 +64,11 @@ body {
       text-overflow: ellipsis;
       position: relative;
 
+      &:hover {
+        background-color: rgb(54, 57, 68);
+        color: #fff;
+      }
+
       i.close {
         height: 10px;
         width: 10px;
@@ -103,7 +108,12 @@ body {
       background: url(../images/user.png) no-repeat;
       background-size: 100% auto;
       margin-left: 10px;
+      cursor: pointer;
 
+      &:hover {
+        background-position: 0 bottom;
+      }
+      
       img {
         height: 100%;
         width: 100%;
