@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title 开元管理后台
+    meta(name='viewport' content='width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+    meta(name='renderer' content='webkit')
+    link(rel='shortcut icon' href='../favicon.ico')
+    link(rel='stylesheet' href='https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css')
+    link(rel='stylesheet' href='../css/reset.css')
+    link(rel='stylesheet' href='../css/mobile.css')
+    block styles
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    block scripts
+  body
+    .app-main
+      include ./mobile-sidebar.pug
+      .app-content
+        block content
+    block inlineScript

@@ -1,0 +1,104 @@
+extends ../component/mobile-page.pug
+
+block scripts
+  script(src='../js/echarts.slim.js')
+  script(src='../js/mobileChartToolkit.js')
+  script(src='../js/config.rose.js')
+  script(src='../js/config.heap-bar.js')
+  script(src='../js/config.bar.js')
+  script(src='../js/config.line.js')
+
+block content
+  .main-content
+    .card
+      .card-title 平台当日盈利
+      .chart-wrap
+        .chart#rose1(style='height: 300px')
+      table.app-growth-list(cellpadding='0' cellspacing='0')
+        tr.growth-item
+          td
+            span 今日总盈利：123,123,123
+          td(align='right')
+            span.growth-label.green 同比10%
+            span.growth-label.red 环比-10%
+    
+    .card
+      .card-title 平台当日新增/活跃
+      .app-zoom
+      .chart-wrap
+        .chart#bar1(style='height: 310px')
+      table.app-growth-list(cellpadding='0' cellspacing='0')
+        tr.growth-item
+          td
+            span 今日总新增：123,123
+          td(align='right')
+            span.growth-label.green 同比10%
+            span.growth-label.red 环比-10%
+        tr.growth-item
+          td
+            span 今日总活跃：123
+          td(align='right')
+            span.growth-label.green 同比10%
+            span.growth-label.red 环比-10%
+
+    .card
+      .card-title 平台本月盈利
+      .chart-wrap
+        .chart#rose2(style='height: 240px')
+      table.app-growth-list(cellpadding='0' cellspacing='0')
+        tr.growth-item
+          td
+            span 本月总盈利：123,123,123
+          td(align='right')
+            span.growth-label.green 同比10%
+            span.growth-label.red 环比-10%
+
+    .card
+      .card-title 最近30天在线数据
+      .chart-wrap
+        .chart#line1(style='height: 210px')
+    
+    .card
+      .card-title 24小时实时在线
+      .chart-wrap
+        .chart#line2(style='height: 190px')
+
+    .card
+      .card-title 平台当日总注单量
+      .chart-wrap
+        .chart#rose3(style='height: 240px')
+      table.app-growth-list(cellpadding='0' cellspacing='0')
+        tr.growth-item
+          td
+            span 平台当日总注单量：123,123,123
+          td(align='right')
+            span.growth-label.green 同比10%
+            span.growth-label.red 环比-10%
+
+    .card
+      .card-title 平台当日总投注
+      .chart-wrap
+        .chart#rose4(style='height: 240px')
+      table.app-growth-list(cellpadding='0' cellspacing='0')
+        tr.growth-item
+          td
+            span 平台当日总投注：123,123,123
+          td(align='right')
+            span.growth-label.green 同比10%
+            span.growth-label.red 环比-10%
+
+    .card
+      .card-title 平台当日人均输赢
+      .chart-wrap
+        .chart#bar2(style='height: 500px;')
+      table.app-growth-list(cellpadding='0' cellspacing='0')
+        tr.growth-item
+          td
+            span 平台当日总投注：123,123,123
+          td(align='right')
+            span.growth-label.green 同比10%
+            span.growth-label.red 环比-10%
+
+block inlineScript
+  script
+    include mobile-page-1.js

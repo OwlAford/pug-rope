@@ -34,7 +34,9 @@
 
 .app-btn {
   background-color: #525665;
-  background-image: -webkit-linear-gradient(135deg, #313441, #808597);
+  background-image: -webkit-linear-gradient(315deg, #313441, #808597);
+  background-image: -o-linear-gradient(315deg, #313441, #808597);
+  background-image: linear-gradient(135deg, #313441, #808597);
   color: #fff;
   border: none;
   outline: none;
@@ -47,17 +49,23 @@
 
 .app-btn:active {
   background-color: #33363f;
-  background-image: -webkit-linear-gradient(135deg, #1f2129, #606472);
+  background-image: -webkit-linear-gradient(315deg, #1f2129, #606472);
+  background-image: -o-linear-gradient(315deg, #1f2129, #606472);
+  background-image: linear-gradient(135deg, #1f2129, #606472);
 }
 
 .app-btn.dangerous {
   background-color: #d0504d;
-  background-image: -webkit-linear-gradient(135deg, #c33633, #dd6a66);
+  background-image: -webkit-linear-gradient(315deg, #c33633, #dd6a66);
+  background-image: -o-linear-gradient(315deg, #c33633, #dd6a66);
+  background-image: linear-gradient(135deg, #c33633, #dd6a66);
 }
 
 .app-btn.dangerous:active {
   background-color: #b44442;
-  background-image: -webkit-linear-gradient(135deg, #a72f2d, #dd6a66);
+  background-image: -webkit-linear-gradient(315deg, #a72f2d, #dd6a66);
+  background-image: -o-linear-gradient(315deg, #a72f2d, #dd6a66);
+  background-image: linear-gradient(135deg, #a72f2d, #dd6a66);
 }
 
 .app-btn.hollow {
@@ -73,12 +81,16 @@
 
 .app-btn.warning {
   background-color: #ef904a;
-  background-image: -webkit-linear-gradient(135deg, #ea7e53, #f49f42);
+  background-image: -webkit-linear-gradient(315deg, #ea7e53, #f49f42);
+  background-image: -o-linear-gradient(315deg, #ea7e53, #f49f42);
+  background-image: linear-gradient(135deg, #ea7e53, #f49f42);
 }
 
 .app-btn.warning:active {
   background-color: #d37e41;
-  background-image: -webkit-linear-gradient(135deg, #ca6d49, #d68a39);
+  background-image: -webkit-linear-gradient(315deg, #ca6d49, #d68a39);
+  background-image: -o-linear-gradient(315deg, #ca6d49, #d68a39);
+  background-image: linear-gradient(135deg, #ca6d49, #d68a39);
 }
 
 .app-btn.large {
@@ -173,6 +185,7 @@
   background-color: #000;
   opacity: 0;
   -webkit-transition: opacity .3s;
+  -o-transition: opacity .3s;
   transition: opacity .3s;
 }
 

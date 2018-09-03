@@ -1,0 +1,42 @@
+.main-content {
+  font-size: 12px;
+  padding: 15px 10px;
+}
+
+.main-content .card {
+  background-color: #292c39;
+  padding: 10px;
+}
+
+.main-content .card .card-title {
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+.main-content .card + .card {
+  margin-top: 15px;
+}
+
+table.app-growth-list {
+  width: 100%;
+  border-spacing: 0;
+  font-size: 12px;
+  line-height: 32px;
+}
+
+table.app-growth-list td {
+  color: #e3e3e5;
+}
+
+table.app-growth-list .growth-label {
+  padding: 3px 10px;
+  background-color: #73a372;
+  margin: 0 5px;
+  border-radius: 3px;
+}
+
+table.app-growth-list .growth-label.red {
+  background-color: #dd6a66;
+}
+
+/*# sourceMappingURL=maps/mobile-page.css.map */

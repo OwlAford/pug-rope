@@ -28,7 +28,11 @@ function chartToolkit (opts) {
       // 页面布局宽度发生变化，图表尺寸需要重置
       _this.resetGrid(opts.gridRatio);
       _this.resizeTimer = setTimeout(function () {
-        _this.resize();
+        if (_this.isFullScreen) {
+          _this.resize(_this.activeIndex);
+        } else {
+          _this.resize();
+        }
         clearTimeout(_this.resizeTimer);
       }, opts.resizeDelay || 300);
     }))
@@ -137,6 +141,7 @@ chartToolkit.prototype.fullScreen = function () {
   var $allCard = $('.card');
 
   $('.app-zoom').on('click', function () {
+    var docEl = document.documentElement;
     var $zoomBtn = $(this);
     var $card = $zoomBtn.parent();
     var activeIndex = Number($zoomBtn.attr('data-chart-index'));
@@ -144,28 +149,36 @@ chartToolkit.prototype.fullScreen = function () {
     var $chart = $card.find('.chart');
     var ratio = $chart.height() / $chart.width();
 
-    if (ratio < 0.56) {
-      ratio = 0.56;
-    }
+    var chartType = _this.chartOptionQueue[activeIndex]().series[0].type;
 
     var fullViewHeight = ratio * _this.availableWidth;
-  
+
+    if (chartType === 'pie') {
+      fullViewHeight = docEl.clientHeight - 148;
+    }
+
+    if (fullViewHeight < 380) {
+      fullViewHeight = 380;
+    }
+
     if ($zoomBtn.hasClass('in')) {
       $zoomBtn.removeClass('in');
-      $allCard.show();
+      $allCard.removeClass('hide');
       $activeCard.removeClass('fixed');
       $chart.css('height', _this.tempHeight + 'px');
       _this.isFullScreen = false;
+      this.activeIndex = null;
     } else {
       _this.tempHeight = $chart.height();
       $zoomBtn.addClass('in');
-      $allCard.hide();
-      $activeCard.show().addClass('fixed');
+      $allCard.addClass('hide');
+      $activeCard.removeClass('hide').addClass('fixed');
       $chart.css('height', fullViewHeight + 'px');
       _this.isFullScreen = true;
+      this.activeIndex = activeIndex;
     }
 
-     _this.render(activeIndex);
-     _this.resize(activeIndex);
+    _this.render(activeIndex);
+    _this.resize(activeIndex);
   })
 }

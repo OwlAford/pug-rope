@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>开元管理后台</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/mobile-page.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/echarts.slim.js"></script>
+    <script src="../js/mobileChartToolkit.js"></script>
+    <script src="../js/config.rose.js"></script>
+    <script src="../js/config.heap-bar.js"></script>
+    <script src="../js/config.bar.js"></script>
+    <script src="../js/config.line.js"></script>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="card">
+        <div class="card-title">平台当日盈利</div>
+        <div class="chart-wrap">
+          <div class="chart" id="rose1" style="height: 300px"></div>
+        </div>
+        <table class="app-growth-list" cellpadding="0" cellspacing="0">
+          <tr class="growth-item">
+            <td><span>今日总盈利：123,123,123</span></td>
+            <td align="right"><span class="growth-label green">同比10%</span><span class="growth-label red">环比-10%</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">平台当日新增/活跃</div>
+        <div class="app-zoom"></div>
+        <div class="chart-wrap">
+          <div class="chart" id="bar1" style="height: 310px"></div>
+        </div>
+        <table class="app-growth-list" cellpadding="0" cellspacing="0">
+          <tr class="growth-item">
+            <td><span>今日总新增：123,123</span></td>
+            <td align="right"><span class="growth-label green">同比10%</span><span class="growth-label red">环比-10%</span></td>
+          </tr>
+          <tr class="growth-item">
+            <td><span>今日总活跃：123</span></td>
+            <td align="right"><span class="growth-label green">同比10%</span><span class="growth-label red">环比-10%</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">平台本月盈利</div>
+        <div class="chart-wrap">
+          <div class="chart" id="rose2" style="height: 240px"></div>
+        </div>
+        <table class="app-growth-list" cellpadding="0" cellspacing="0">
+          <tr class="growth-item">
+            <td><span>本月总盈利：123,123,123</span></td>
+            <td align="right"><span class="growth-label green">同比10%</span><span class="growth-label red">环比-10%</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">最近30天在线数据</div>
+        <div class="chart-wrap">
+          <div class="chart" id="line1" style="height: 210px"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">24小时实时在线</div>
+        <div class="chart-wrap">
+          <div class="chart" id="line2" style="height: 190px"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">平台当日总注单量</div>
+        <div class="chart-wrap">
+          <div class="chart" id="rose3" style="height: 240px"></div>
+        </div>
+        <table class="app-growth-list" cellpadding="0" cellspacing="0">
+          <tr class="growth-item">
+            <td><span>平台当日总注单量：123,123,123</span></td>
+            <td align="right"><span class="growth-label green">同比10%</span><span class="growth-label red">环比-10%</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">平台当日总投注</div>
+        <div class="chart-wrap">
+          <div class="chart" id="rose4" style="height: 240px"></div>
+        </div>
+        <table class="app-growth-list" cellpadding="0" cellspacing="0">
+          <tr class="growth-item">
+            <td><span>平台当日总投注：123,123,123</span></td>
+            <td align="right"><span class="growth-label green">同比10%</span><span class="growth-label red">环比-10%</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">平台当日人均输赢</div>
+        <div class="chart-wrap">
+          <div class="chart" id="bar2" style="height: 500px;"></div>
+        </div>
+        <table class="app-growth-list" cellpadding="0" cellspacing="0">
+          <tr class="growth-item">
+            <td><span>平台当日总投注：123,123,123</span></td>
+            <td align="right"><span class="growth-label green">同比10%</span><span class="growth-label red">环比-10%</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+$(function () {
+  var toolkit = new chartToolkit();
+
+  // 南丁格尔玫瑰图1
+  toolkit.push('rose1', getRoseOptions({
+    name: '当日盈利',
+    radius: [25, 120],
+    data: [{
+      value: 10,
+      name: '抢庄牛牛',
+    },
+    {
+      value: 5,
+      name: '炸金花',
+    },
+    {
+      value: 15,
+      name: '通比牛牛',
+    },
+    {
+      value: 25,
+      name: '德州扑克',
+    },
+    {
+      value: 20,
+      name: '二八杠',
+    },
+    {
+      value: 35,
+      name: '十八水',
+    },
+    ],
+  }, {
+    color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
+  }));
+
+  // 堆积条形图1
+  toolkit.push('bar1', getHeapBarOptions());
+
+  // 南丁格尔玫瑰图2
+  toolkit.push('rose2', getRoseOptions({
+    name: '本月盈利',
+    radius: [20, 100],
+    data: [{
+      value: 10,
+      name: '抢庄牛牛',
+    },
+    {
+      value: 5,
+      name: '炸金花',
+    },
+    {
+      value: 15,
+      name: '通比牛牛',
+    },
+    {
+      value: 25,
+      name: '德州扑克',
+    },
+    {
+      value: 20,
+      name: '二八杠',
+    },
+    {
+      value: 35,
+      name: '十八水',
+    },
+    ],
+  }, {
+    color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
+  }))
+
+  // 折线图1
+  toolkit.push('line1', getLineOptions(
+    ['平均在线', '峰值在线'],
+    ['00', '03', '06', '09', '12', '15', '18', '21', '24', '27', '30'],
+    [{
+      itemStyle: {
+        normal: {
+          lineStyle: {
+            width: 1,
+            type: 'solid',
+          },
+          label: {
+            textStyle: {
+              fontSize: '12',
+              fontWeight: 'normal',
+            },
+          },
+          color: '#cb8622',
+          areaStyle: {
+            color: 'rgba(203, 134, 34, 0.2)',
+          },
+        },
+      },
+      symbolSize: 0,
+      name: '平均在线',
+      type: 'line',
+      smooth: true,
+      data: toolkit.getRandomArray(11, 900, 2800),
+    }, {
+      itemStyle: {
+        normal: {
+          lineStyle: {
+            width: 1,
+            type: 'solid',
+          },
+          label: {
+            textStyle: {
+              fontSize: '12',
+              fontWeight: 'normal',
+            },
+          },
+          color: '#b56a74',
+          areaStyle: {
+            color: 'rgba(221, 106, 102, 0.2)',
+          },
+        },
+      },
+      symbolSize: 0,
+      name: '峰值在线',
+      type: 'line',
+      smooth: true,
+      data: toolkit.getRandomArray(11, 900, 5100),
+    }],
+  ));
+
+  // 折线图2
+  toolkit.push('line2', getLineOptions(
+    ['平均在线', '峰值在线'],
+    ['00', '03', '06', '09', '12', '15', '18', '21', '24', '27', '30'],
+    [{
+      itemStyle: {
+        normal: {
+          lineStyle: {
+            width: 1,
+            type: 'solid',
+          },
+          label: {
+            textStyle: {
+              fontSize: '12',
+              fontWeight: 'normal',
+            },
+          },
+          color: '#8378ea',
+          areaStyle: {
+            color: 'rgba(131, 120, 234, 0.2)',
+          },
+        },
+      },
+      symbolSize: 0,
+      name: '平均在线',
+      type: 'line',
+      smooth: true,
+      data: toolkit.getRandomArray(11, 900, 2800),
+    }, {
+      itemStyle: {
+        normal: {
+          lineStyle: {
+            width: 1,
+            type: 'solid',
+          },
+          label: {
+            textStyle: {
+              fontSize: '12',
+              fontWeight: 'normal',
+            },
+          },
+          color: '#319ad7',
+          areaStyle: {
+            color: 'rgba(56, 162, 219, 0.2)',
+          },
+        },
+      },
+      symbolSize: 0,
+      name: '峰值在线',
+      type: 'line',
+      smooth: true,
+      data: toolkit.getRandomArray(11, 900, 5100),
+    }],
+  ));
+
+  // 南丁格尔玫瑰图3
+  toolkit.push('rose3', getRoseOptions({
+    name: '当日总注单量',
+    radius: [25, 120],
+    data: [{
+      value: 10,
+      name: '抢庄牛牛',
+    },
+    {
+      value: 5,
+      name: '炸金花',
+    },
+    {
+      value: 15,
+      name: '通比牛牛',
+    },
+    {
+      value: 25,
+      name: '德州扑克',
+    },
+    {
+      value: 20,
+      name: '二八杠',
+    },
+    {
+      value: 35,
+      name: '十八水',
+    },
+    ],
+  }, {
+    color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
+  }));
+
+  // 南丁格尔玫瑰图4
+  toolkit.push('rose4', getRoseOptions({
+    name: '当日总投注',
+    radius: [25, 120],
+    data: [{
+      value: 10,
+      name: '抢庄牛牛',
+    },
+    {
+      value: 5,
+      name: '炸金花',
+    },
+    {
+      value: 15,
+      name: '通比牛牛',
+    },
+    {
+      value: 25,
+      name: '德州扑克',
+    },
+    {
+      value: 20,
+      name: '二八杠',
+    },
+    {
+      value: 35,
+      name: '十八水',
+    },
+    ],
+  }, {
+    color: ['#719b9e', '#627998', '#d47974', '#7e76cd', '#9dc582', '#e18045', '#3a4b66'],
+  }));
+
+  // 条形图2
+  toolkit.push('bar2', getBarOptions());
+
+  // 执行一次全局图表渲染
+  toolkit.render();
+});
+
+    </script>
+  </body>
+</html>

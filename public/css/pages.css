@@ -29,6 +29,7 @@
 
 .flex-grid .grid-col, .flex-single-grid .grid-col {
   -webkit-transition: width linear .2s;
+  -o-transition: width linear .2s;
   transition: width linear .2s;
 }
 
@@ -42,6 +43,11 @@
   margin-bottom: 20px;
   padding: 15px;
   position: relative;
+}
+
+.flex-grid .grid-col .card.hide, .flex-single-grid .grid-col .card.hide {
+  height: 0;
+  overflow: hidden;
 }
 
 .flex-grid .grid-col .card.fixed, .flex-single-grid .grid-col .card.fixed {

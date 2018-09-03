@@ -1,0 +1,43 @@
+$fcLight: #e3e3e5;
+
+.main-content {
+  font-size: 12px;
+  padding: 15px 10px;
+
+  .card {
+    background-color: #292c39;
+    padding: 10px;
+
+    .card-title {
+      font-size: 14px;
+      padding-bottom: 10px;
+    }
+
+    & + .card {
+      margin-top: 15px;
+    }
+  }
+}
+
+// 增长状态
+table.app-growth-list {
+  width: 100%;
+  border-spacing: 0;
+  font-size: 12px;
+  line-height: 32px;
+
+  td {
+    color: $fcLight;
+  }
+
+  .growth-label {
+    padding: 3px 10px;
+    background-color: #73a372;
+    margin: 0 5px;
+    border-radius: 3px;
+
+    &.red {
+      background-color: #dd6a66;
+    }
+  }
+}

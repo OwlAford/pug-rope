@@ -6,10 +6,7 @@ body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, text
 body {
   color: #fff;
   font-size: 14px;
-
-  &:lang(zh-CN) {
-    font-family: 'SF Pro SC', 'SF Pro Text', 'SF Pro Icons', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  }
+  font-family: 'SF Pro SC', 'SF Pro Text', 'SF Pro Icons', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
   &::-webkit-scrollbar {
     width: 3px;

@@ -25,13 +25,21 @@
   right: 15px;
   top: 15px;
   background: url(../images/zoom.png) no-repeat;
-  background-size: 100% auto;
+  background-size: 200% auto;
   z-index: 9;
   cursor: pointer;
 }
 
+.app-zoom:hover {
+  background-position: -18px 0;
+}
+
 .app-zoom.in {
   background-position: 0 100%;
+}
+
+.app-zoom.in:hover {
+  background-position: -18px -18px;
 }
 
 .fc-up {
