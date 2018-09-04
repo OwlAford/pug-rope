@@ -6,9 +6,11 @@ setClient();
 window.addEventListener('resize', setClient, false);
 
 $(function () {
-  var $ctrl = $('.sidebar-control');
-  var $menu = $('.menu-list');
+  var $sidebar = $('.app-sidebar');
+  var $ctrl = $sidebar.find('.sidebar-control');
+  var $menu = $sidebar.find('.menu-list');
   var $menuWrap = $menu.find('.list-wrap');
+  var $mask = $sidebar.find('.app-mask');
 
   var $menuGrp = $('.menu-group');
   var $menuTit = $menuGrp.find('.menu-title');
@@ -19,7 +21,10 @@ $(function () {
 
   function applyMenuHeight(isShow) {
     var showMenuTimer = setTimeout(function () {
-      isShow ? $menu.css('height', $menuWrap.height() + 'px') : $menu.css('height', 0);
+      isShow
+        ? $menu.css('height', $menuWrap.height() + 'px').addClass('show') && $sidebar.addClass('active')
+        : $menu.css('height', 0).removeClass('show') && $sidebar.removeClass('active');
+
       clearTimeout(showMenuTimer);
     }, 200);
   }
@@ -70,6 +75,13 @@ $(function () {
     $subFrame.attr('src', $cur.attr('data-target'));
     applyMenuHeight();
     $ctrl.removeClass('active');
+    $sidebar.removeClass('active');
+  });
+
+  // 点击遮罩部分
+  $mask.on('click', function () {
+    $ctrl.removeClass('active');
+    $sidebar.removeClass('active');
   });
 
   // 设置子iframe尺寸

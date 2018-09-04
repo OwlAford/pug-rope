@@ -1,0 +1,29 @@
+extends ../component/mobile-page.pug
+
+block scripts
+  script(src='../js/echarts.slim.js')
+  script(src='../js/mobileChartToolkit.js')
+  script(src='../js/config.rose.js')
+
+block content
+  .main-content
+    .status-bar
+      .cell
+        h1 当日盈利最高
+        p GPK
+      .cell
+        h1 当日新增最高
+        p PPKP
+      .cell
+        h1 当日活跃最高
+        p GPK
+          
+    .chart-wrap
+      .chart#rose1(style='height: 400px')
+
+    .btn-wrap
+      .fixed-btn 列表图
+
+block inlineScript
+  script
+    include mobile-page-2.js

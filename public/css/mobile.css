@@ -3,6 +3,12 @@ body {
   background: url(../images/bg.jpg) no-repeat;
   background-attachment: fixed;
   font-size: 0.24rem;
+  overflow: hidden;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
 }
 
 .app-sidebar {
@@ -12,6 +18,22 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.app-sidebar.active {
+  height: auto;
+}
+
+.app-sidebar .app-mask {
+  position: absolute;
+  left: 0;
+  top: 0.84rem;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .app-sidebar .app-brand {
@@ -31,8 +53,7 @@ body {
   background: url(../images/list.png) no-repeat;
   background-size: 100% auto;
   left: 0.2rem;
-  top: 50%;
-  margin-top: -0.24rem;
+  top: 0.18rem;
 }
 
 .app-sidebar .sidebar-control.active {
@@ -46,8 +67,7 @@ body {
   background-size: 100% auto;
   position: absolute;
   right: 0.2rem;
-  top: 50%;
-  margin-top: -0.24rem;
+  top: 0.18rem;
 }
 
 .app-sidebar .avatar img {
@@ -106,6 +126,7 @@ body {
   background-color: #292c39;
   height: 0;
   overflow: hidden;
+  opacity: 0;
   -webkit-transition: height .2s;
   -o-transition: height .2s;
   transition: height .2s;
@@ -113,6 +134,7 @@ body {
 
 .app-sidebar .menu-list.show {
   height: auto;
+  opacity: 1;
 }
 
 .app-sidebar .menu-list .menu-title {

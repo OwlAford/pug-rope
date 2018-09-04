@@ -3,7 +3,7 @@ var getBarOptions = function (full) {
   var barWidth = 14;
   var grid = {
     x: 60,
-    y: 40,
+    y: 20,
     x2: 10,
     y2: 20,
     borderWidth: 0,
@@ -14,7 +14,7 @@ var getBarOptions = function (full) {
     barWidth = 24;
     grid = {
       x: 120,
-      y: 40,
+      y: 20,
       x2: 10,
       y2: 20,
       borderWidth: 0,
@@ -23,13 +23,13 @@ var getBarOptions = function (full) {
 
   return {
     grid: grid,
-    legend: {
-      data: ['新增用户', '活跃用户'],
-      textStyle: {
-        color: '#e3e3e5',
-        fontSize: normalFontSize,
-      },
-    },
+    // legend: {
+    //   data: ['新增用户', '活跃用户'],
+    //   textStyle: {
+    //     color: '#e3e3e5',
+    //     fontSize: normalFontSize,
+    //   },
+    // },
     xAxis: [
       {
         type: 'value',
